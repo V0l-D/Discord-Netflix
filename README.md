@@ -17,7 +17,7 @@ Windows: `npm run dist:win`
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.
 # Preview
-![559CatLIJ](https://user-images.githubusercontent.com/35117713/126868591-6cf4cc2a-bdb1-46b7-a437-dbef35fc27fa.png)
+![559PIi50b](https://user-images.githubusercontent.com/35117713/126869768-cceacd28-bc6a-4a73-85f1-154916585516.png)
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->

@@ -32,4 +32,4 @@ Contribution is welcome I could use all the help that's there on this project to
 </table>
 # Preview
 Idle:<br>
-![559CatLIJ](https://user-images.githubusercontent.com/35117713/126868471-85878c32-2f9c-4403-8e54-7a73fad356e7.png)
+![Screenshot 2020-02-09 at 5 08 54 PM](https://user-images.githubusercontent.com/33011208/74101378-2ef4e880-4b5f-11ea-8e9d-5ae1d811a35a.png)

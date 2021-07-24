@@ -31,5 +31,4 @@ Contribution is welcome I could use all the help that's there on this project to
 </thead>
 </table>
 # Preview
-Idle:<br>
 

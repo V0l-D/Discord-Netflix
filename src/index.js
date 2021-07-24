@@ -8,7 +8,7 @@ const { ipcMain } = require('electron')
 app.setAppUserModelId('com.netflix.nirewen')
 
 const icon = path.join(__dirname, '../assets/icon.png')
-const clientId = '387083698358714368'
+const clientId = '868487355114323968'
 
 // Register the application with Discord for join requests
 discordRegister(clientId)

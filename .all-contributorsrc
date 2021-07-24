@@ -1,0 +1,77 @@
+{
+  "projectName": "discord-netflix",
+  "projectOwner": "nirewen",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "types": {
+    "help": {
+      "symbol": "💡",
+      "description": "Support",
+      "link": ""
+    }
+  },
+  "contributors": [
+    {
+      "login": "nirewen",
+      "name": "Eduardo Londero",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/8761479?v=4",
+      "profile": "https://github.com/nirewen",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "Wist9063",
+      "name": "Wist9063",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22089269?v=4",
+      "profile": "https://hexaplexsoftware.ga/",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "Keyygan",
+      "name": "Keegan",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/27071605?v=4",
+      "profile": "https://keyygan.me",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "dmfj",
+      "name": "Dominic Fitch-Jones",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13137236?v=4",
+      "profile": "https://github.com/dmfj",
+      "contributions": [
+        "help"
+      ]
+    },
+    {
+      "login": "NovusTheory",
+      "name": "NovusTheory",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3434404?v=4",
+      "profile": "https://modulobot.xyz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Maik",
+      "name": "Maik",
+      "avatar_url": "https://cdn.discordapp.com/avatars/177405097129672704/eb201db337fc6cfd343a8c90d979e8cd.png?size=1024",
+      "profile": "#",
+      "contributions": [
+        "video",
+        "tutorial"
+      ]
+    }
+  ]
+}

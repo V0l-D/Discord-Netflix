@@ -1,0 +1,62 @@
+{
+  "name": "Netflix",
+  "version": "2.2.1",
+  "description": "A Netflix wrapper with Discord Rich Presence",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:mac": "build -m --publish always",
+    "dist:linux": "build -l --publish always",
+    "dist:win": "electron-builder -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nirewen/discord-netflix.git"
+  },
+  "keywords": [
+    "discord",
+    "rich",
+    "presence",
+    "netflix"
+  ],
+  "author": "Nirewen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nirewen/discord-netflix/issues"
+  },
+  "build": {
+    "appId": "com.netflix.nirewen",
+    "win": {
+      "target": "nsis-web",
+      "icon": "./assets/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "./assets/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "./assets/icon.png"
+    }
+  },
+  "homepage": "https://github.com/nirewen/discord-netflix#readme",
+  "dependencies": {
+    "discord-rpc": "4.0.1",
+    "electron-discord-register": "^1.0.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "setimmediate": "^1.0.5",
+    "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "electron": "github:castlabs/electron-releases#v12.0.15-wvvmp",
+    "electron-builder": "^22.11.7",
+    "electron-notarize": "^1.0.0",
+    "electron-reload": "^1.5.0",
+    "eslint": "^7.31.0",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "register-scheme": "0.0.2"
+  }
+}

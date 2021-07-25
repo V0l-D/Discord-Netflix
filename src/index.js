@@ -5,7 +5,7 @@ const path = require('path')
 const discordRegister = require('electron-discord-register')
 const { ipcMain } = require('electron')
 
-app.setAppUserModelId('com.netflix.nirewen')
+app.setAppUserModelId('com.netflix.Terroriser1')
 
 const icon = path.join(__dirname, '../assets/icon.png')
 const clientId = '868487355114323968'

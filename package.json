@@ -11,26 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/terroriser1/discord-netflix.git"
+    "url": "git+ssh://git@github.com/Terroriser1/Discord-Netflix.git"
   },
-  "keywords": [
-    "discord",
-    "rich",
-    "presence",
-    "netflix"
-  ],
   "author": "Terroriser1",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/terroriser1/discord-netflix/issues"
+    "url": "https://github.com/Terroriser1/Discord-Netflix/issues"
   },
   "build": {
-    "electronVersion": "13.1.7",
-    "electronDownload": {
-      "version": "13.1.7-wvvmp",
-      "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
-    },
-    "appId": "com.netflix.terroriser1",
+    "appId": "com.netflix.Terroriser1",
     "win": {
       "target": "nsis-web",
       "icon": "./assets/icon.png"
@@ -42,9 +31,15 @@
     "mac": {
       "target": "dmg",
       "icon": "./assets/icon.png"
+    },
+    "artifactName": "${productName}_Setup_${version}.${ext}",
+    "electronVersion": "13.1.7",
+    "electronDownload": {
+      "version": "13.1.7-wvvmp",
+      "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
-  "homepage": "https://github.com/terroriser1/discord-netflix#readme",
+  "homepage": "https://github.com/Terroriser1/Discord-Netflix#readme",
   "dependencies": {
     "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",
@@ -62,6 +57,6 @@
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.1.0",
-    "register-scheme": "0.0.2"
+    "register-scheme": "1.0.0"
   }
 }

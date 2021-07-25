@@ -28,3 +28,5 @@ Contribution is welcome I could use all the help that's there on this project to
 All credits go to the respected owners I want to thank Nirewen for making this project possible I was a fan of his Netflix wrapper sadly it got outdated. This is why I am making this remake.
 ## Status
 This project is currently in development and the Netflix wrapper is confirmed working. I also contacted Nirewen approval for this project and he likes the idea.
+## Community
+You can join [this](https://discord.gg/mJYxxeZygw) Discord server for updates and more information about the project and chat with other people interested in this project.

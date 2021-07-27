@@ -14,9 +14,9 @@ You can download a prebuilt installer from [releases](https://github.com/Terrori
 
 Python is needed for the ECS certificate so Netflix is able to stream media over electron.
 # Building
-I only made a Windows version but it's easy to build a Linux and Mac version you only need to tweak a bit of code. I can't test these though due I don't operate these systems.<br>
+Right now only Windows is supported for building and I am working on making this compatible for Linux and Mac aswell.<br>
 <br>
-Windows: `npm run dist:win`
+Windows: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki)
 <br>
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.

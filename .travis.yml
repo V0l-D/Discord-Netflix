@@ -1,16 +1,5 @@
 language: node_js
 node_js:
-  - '8'
-env:
-  global:
-    - ELECTRON_CACHE=$HOME/.cache/electron
-    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-os:
-  - windows
-cache:
-  directories:
-  - $HOME/.cache/electron
-  - $HOME/.cache/electron-builder
-  - $HOME/.npm/_prebuilds
+  - "stable"
 script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run winbuild

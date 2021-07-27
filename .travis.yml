@@ -14,5 +14,4 @@ cache:
   - $HOME/.cache/electron-builder
   - $HOME/.npm/_prebuilds
 script:
-  - npm install
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run winbuild

@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.com/Terroriser1/Discord-Netflix.svg?branch=main)](https://travis-ci.com/github/Terroriser1/Discord-Netflix)
 [![star this repo](https://githubbadges.com/star.svg?user=Terroriser1&repo=Discord-Netflix&style=flat)](https://github.com/Terroriser1/Discord-Netflix)
 [![Discord Chat](https://img.shields.io/discord/868546947953356860)](https://discord.gg/kbf8EjpxbU)
 # Discord-Netflix

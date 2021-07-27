@@ -1,13 +1,12 @@
 language: node_js
 node_js:
-  - '8'
+  - '12'
 env:
   global:
     - ELECTRON_CACHE=$HOME/.cache/electron
     - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 os:
-  - linux
-  - osx
+  - windows
 cache:
   directories:
   - node_modules
@@ -16,4 +15,4 @@ cache:
   - $HOME/.npm/_prebuilds
 script:
   - npm install
-  - if [[ "$TRAVIS_OS_NAME" == "win" ]]; then npm run winbuild
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run winbuild

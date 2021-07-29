@@ -1,6 +1,5 @@
 [![star this repo](https://githubbadges.com/star.svg?user=Terroriser1&repo=Discord-Netflix&style=flat)](https://github.com/Terroriser1/Discord-Netflix)
 [![Discord Chat](https://img.shields.io/discord/868546947953356860)](https://discord.gg/kbf8EjpxbU)
-[![DevDependecies](https://status.david-dm.org/gh/Terroriser1/Discord-Netflix.svg)](https://status.david-dm.org/gh/Terroriser1/Discord-Netflix)
 [![Known Vulnerabilities](https://snyk.io/test/github/Terroriser1/Discord-Netflix/badge.svg)](https://snyk.io/test/github/Terroriser1/Discord-Netflix)
 # Discord-Netflix
 A updated version from the original Discord-Netflix from nirewen

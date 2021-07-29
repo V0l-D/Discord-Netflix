@@ -1,10 +1,10 @@
 {
   "name": "Netflix",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Netflix wrapper with Discord Rich Presence",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron . ",
     "macbuild": "electron-builder -m",
     "linbuild": "electron-builder -l",
     "winbuild": "electron-builder -w"
@@ -46,7 +46,8 @@
     "jquery": "3.6.0",
     "moment": "2.29.1",
     "setimmediate": "1.0.5",
-    "socket.io-client": "4.1.3"
+    "socket.io-client": "4.1.3",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "electron": "13.1.7",

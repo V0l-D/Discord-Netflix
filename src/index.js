@@ -4,6 +4,7 @@ const { NetflixParty } = require('./NetflixParty')
 const path = require('path')
 const discordRegister = require('electron-discord-register')
 const { ipcMain } = require('electron')
+require('update-electron-app')()
 
 app.setAppUserModelId('com.netflix.Terroriser1')
 
@@ -35,12 +36,12 @@ app.on('ready', () => {
         party
     })
     mainWindow.maximize()
-    mainWindow.loadURL('https://www.netflix.com/browse')
+    mainWindow.loadURL('https://www.netflix.com/browse') 
 
     party.ipcSetup(mainWindow)
     let navigationLoad = (loadType) => {
         // This is a bit ugly but it works
-        let type = mainWindow.webContents.getURL().split('/').slice(1, 4)[2]
+        let type = mainWindow.webContents.getURL().split('/').slice(1, 4)[2]  
 		
 		mainWindow.webContents.send('np', {
             type: 'navigation',
@@ -99,7 +100,11 @@ app.on('rpc', () => {
                 id: sessionId
             }
 
-            mainWindow.loadURL('https://netflix.com/watch/' + videoId)
+            mainWindow.loadURL('https://netflix.com/watch/' + videoId).then(() => {
+                const currentURL = mainWindow.webContents.getURL()
+                console.log(currentURL)
+              })
+            win.webContents.openDevTools()
         })
     }).catch(e => {
         let notification = new Notification({

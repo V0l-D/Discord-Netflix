@@ -3,11 +3,12 @@ const scripts = require('../util/scripts')
 const moment = require('moment')
 const crypto = require('crypto')
 const path = require('path')
+const { takeHeapSnapshot } = require('process')
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor ({ title, icon, rpc, party }) {
         super({
-            backgroundColor: '#FFF',
+            backgroundColor: '#141414', //Let's not blind ourselfs here
             useContentSize: false,
             autoHideMenuBar: true,
             resizable: true,
@@ -40,14 +41,13 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         let infos = await this.getInfos()
         
         if (infos) { // if !infos don't change presence then.
-            let { name, title, episode, duration, currentTime, paused, interactive, avatar, userName } = infos
+            let { name, title, episode, duration, currentTime, paused, interactive, avatar, userName, button} = infos
             let video = episode && title
                 ? `${episode} - ${title}` 
                 : episode
             let endTimestamp
             let smallImageKey
             let smallImageText
-    
             // Evaluate the avatar id from the avatar (RegExp was acting funny inside the executeJavaScript for some reason, same code worked if copy and pasted into inspect element console and here)
             let avatarRegex = /AVATAR\|(.*)\|.*\|.*\|.*/gm
             let match = avatarRegex.exec(avatar)
@@ -64,6 +64,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
     
             if (userName)
                 smallImageText = userName
+
     
             if (duration && currentTime && !paused && !interactive) {
                 let now = moment.utc()
@@ -71,7 +72,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
                 
                 endTimestamp = now.add(remaining).unix()
             }
-                
+
             this.rpc.currentState = { avatar, video, paused }
             var activity = {
                 details: name,
@@ -81,22 +82,23 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
                 smallImageKey,
                 smallImageText,
                 instance: false,
-                endTimestamp
+                endTimestamp,
+                buttons: button
             }
 
             // Currently disabled (not programmed)
-            this.partyState = this.party.sessionData
-            if (this.party.sessionData.id !== null) {
-                var videoIdMatch = this.getURL().match(/^.*\/([0-9]+)\??.*/)
-                if (videoIdMatch) {
-                    var videoId = parseInt(videoIdMatch[1])
-                    activity.partyId = this.party.sessionData.id
-                    activity.partySize = this.party.sessionData.partyCount
-                    activity.partyMax = this.party.sessionData.partyCount + 1
-                    activity.joinSecret = Buffer.from(videoId + ',' + this.party.sessionData.id).toString('base64')
-                    activity.instance = true
-                }
-            }
+           this.partyState = this.party.sessionData
+           if (this.party.sessionData.id !== null) {
+               var videoIdMatch = this.getURL().match(/^.*\/([0-9]+)\??.*/)
+               if (videoIdMatch) {
+                   var videoId = parseInt(videoIdMatch[1])
+                   activity.partyId = this.party.sessionData.id
+                   activity.partySize = this.party.sessionData.partyCount
+                   activity.partyMax = this.party.sessionData.partyCount + 1
+                   activity.joinSecret = Buffer.from(videoId + ',' + this.party.sessionData.id).toString('base64')
+                   activity.instance = true
+               }
+           }
 
             this.rpc.setActivity(activity)
         }

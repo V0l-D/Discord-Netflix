@@ -1,6 +1,6 @@
 {
   "projectName": "discord-netflix",
-  "projectOwner": "nirewen",
+  "projectOwner": "Terroriser1",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -16,6 +16,16 @@
     }
   },
   "contributors": [
+     {
+      "login": "Terroriser1",
+      "name": "Maurice van Egmond",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35117713?v=4",
+      "profile": "https://github.com/Terroriser1",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
     {
       "login": "nirewen",
       "name": "Eduardo Londero",

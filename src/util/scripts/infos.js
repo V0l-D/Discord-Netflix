@@ -1,5 +1,7 @@
 /* global document, location, netflix */
 
+let { data } = require("jquery")
+
 module.exports = function () {
     let [type, id] = location.pathname.split('/').slice(1, 3)
     let avatar = ''
@@ -36,16 +38,16 @@ module.exports = function () {
 
     if (type === 'watch' && document.querySelector('.ellipsize-text')) {
         let name = document.querySelector('.ellipsize-text')
+        //Let's get the video ID for the button
+        let id = document.querySelector('[data-videoid]').dataset.videoid
         let span = document.querySelector('.ellipsize-text').querySelectorAll('span')
         let { duration, currentTime, paused } = document.querySelector('.VideoContainer').getElementsByTagName('video')[0]
-        
         let title = span[1] ? span[1].innerHTML : undefined
         let episode = span[0] ? span[0].innerHTML : undefined
         let interactive = false
         // TODO: Better interactive video check. Severe problems are caused in the solutions currently found
 
         name = name.querySelector('h4') ? name.querySelector('h4').innerText : name.innerText
-
-        return { name, title, episode, duration, currentTime, paused, interactive, avatar, userName }
+        return { name, title, episode, duration, currentTime, paused, interactive, avatar, userName, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}]} //+ id}]}
     }
 }

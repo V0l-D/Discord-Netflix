@@ -9,7 +9,7 @@ module.exports = function () {
 
     if (netflix) {
         let { userGuid, name } = netflix.reactContext.models.userInfo.data
-        avatar = netflix.falcorCache.profiles[userGuid].avatar.value[2]
+        avatar = netflix.falcorCache.profiles[userGuid].summary.value.avatarName.split('R|').pop().split('|')[0]//Okay wtf this works lol
         userName = name
     }
 
@@ -46,8 +46,7 @@ module.exports = function () {
         let episode = span[0] ? span[0].innerHTML : undefined
         let interactive = false
         // TODO: Better interactive video check. Severe problems are caused in the solutions currently found
-
         name = name.querySelector('h4') ? name.querySelector('h4').innerText : name.innerText
-        return { name, title, episode, duration, currentTime, paused, interactive, avatar, userName, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}]} //+ id}]}
+        return { name, title, episode, duration, currentTime, paused, interactive, avatar, userName, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}]}
     }
 }

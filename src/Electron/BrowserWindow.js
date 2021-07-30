@@ -3,7 +3,6 @@ const scripts = require('../util/scripts')
 const moment = require('moment')
 const crypto = require('crypto')
 const path = require('path')
-const { takeHeapSnapshot } = require('process')
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor ({ title, icon, rpc, party }) {
@@ -20,7 +19,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             webPreferences: {
                 nodeIntegration: false,
                 plugins: true,
-                preload: path.join(__dirname, '../util/scripts/np_content_script.js')
+                preload: path.join(__dirname, '../util/scripts/np_content_script.js'), 
             }
         })
 
@@ -28,6 +27,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         this.party = party
         this.partyState = null
     }
+    
 
     eval (code) {
         return this.webContents.executeJavaScript(code)
@@ -60,7 +60,8 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
     
             // if the avatar doesn't show in the Rich Presence, it means it's not supported
             if (avatar) 
-                smallImageKey = avatar
+                smallImageKey = crypto.createHash('md5').update(avatar).digest('hex'); //bad fix but who actually cares
+                console.log(smallImageKey)
     
             if (userName)
                 smallImageText = userName
@@ -103,4 +104,5 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             this.rpc.setActivity(activity)
         }
     }
+    
 }

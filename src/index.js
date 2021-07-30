@@ -5,6 +5,7 @@ const path = require('path')
 const discordRegister = require('electron-discord-register')
 const { ipcMain } = require('electron')
 require('update-electron-app')()
+const globToRegExp = require('glob-to-regexp');
 
 app.setAppUserModelId('com.netflix.Terroriser1')
 
@@ -33,7 +34,7 @@ app.on('ready', () => {
         rpc,
         title: 'Netflix',
         icon,
-        party
+        party,
     })
     mainWindow.maximize()
     mainWindow.loadURL('https://www.netflix.com/browse') 
@@ -104,7 +105,6 @@ app.on('rpc', () => {
                 const currentURL = mainWindow.webContents.getURL()
                 console.log(currentURL)
               })
-            win.webContents.openDevTools()
         })
     }).catch(e => {
         let notification = new Notification({

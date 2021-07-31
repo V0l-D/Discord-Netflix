@@ -35,6 +35,7 @@ app.on('ready', () => {
         title: 'Netflix',
         icon,
         party,
+        userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 Edg/92.0.902.55",//Privacy
     })
     mainWindow.maximize()
     mainWindow.loadURL('https://www.netflix.com/browse') 

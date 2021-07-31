@@ -16,6 +16,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             alwaysOnTop: false,
             title,
             icon,
+            userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 Edg/92.0.902.55",//Let's get a little privacy
             webPreferences: {
                 nodeIntegration: false,
                 plugins: true,

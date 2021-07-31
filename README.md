@@ -6,7 +6,7 @@ A updated version from the original Discord-Netflix from nirewen
 A Netflix wrapper that uses Discord RPC to show what you're watching using the new Rich Presence
 # Features
 - Max bitrate support
-- Netflix party
+- [Netflix party](https://github.com/Terroriser1/Discord-Netflix/wiki/Netflix-Party)
 - Discord RPC
 # Prebuild
 You can download a prebuilt installer from [releases](https://github.com/Terroriser1/Discord-Netflix/releases) if you want.

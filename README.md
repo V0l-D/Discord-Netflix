@@ -1,4 +1,5 @@
-[![star this repo](https://githubbadges.com/star.svg?user=Terroriser1&repo=Discord-Netflix&style=flat)](https://github.com/Terroriser1/Discord-Netflix)
+[![star this repo](https://githubbadges.com/star.svg?user=Terroriser1&repo=Discord-Netflix&style=default)](https://github.com/Terroriser1/Discord-Netflix)
+[![fork this repo](https://githubbadges.com/fork.svg?user=Terroriser1&repo=Discord-Netflix&style=default)](https://github.com/Terroriser1/Discord-Netflix/fork)
 [![Discord Chat](https://img.shields.io/discord/868546947953356860)](https://discord.gg/kbf8EjpxbU)
 [![Known Vulnerabilities](https://snyk.io/test/github/Terroriser1/Discord-Netflix/badge.svg)](https://snyk.io/test/github/Terroriser1/Discord-Netflix)
 # Discord-Netflix

@@ -33,9 +33,9 @@
       "icon": "./assets/icon.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "13.1.7",
+    "electronVersion": "13.1.8",
     "electronDownload": {
-      "version": "13.1.7-wvvmp",
+      "version": "13.1.8-wvvmp",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
@@ -43,20 +43,20 @@
   "dependencies": {
     "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",
+    "glob-to-regexp": "0.4.1",
     "jquery": "3.6.0",
     "moment": "2.29.1",
     "setimmediate": "1.0.5",
     "socket.io-client": "4.1.3",
     "update-electron-app": "^2.0.1",
-    "glob-to-regexp": "^0.4.1",
     "xmldom": "github:xmldom/xmldom#0.7.0"
   },
   "devDependencies": {
-    "electron": "13.1.7",
-    "electron-builder": "22.11.9",
-    "electron-notarize": "1.0.0",
+    "electron": "13.1.8",
+    "electron-builder": "^22.9.1",
+    "electron-notarize": "1.0.1",
     "electron-reload": "1.5.0",
-    "eslint": "7.31.0",
+    "eslint": "7.32.0",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.1.0",

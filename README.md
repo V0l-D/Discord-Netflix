@@ -10,6 +10,7 @@ A Netflix wrapper that uses Discord RPC to show what you're watching using the n
 - [Netflix party](https://github.com/Terroriser1/Discord-Netflix/wiki/Netflix-Party)
 - Discord RPC
 - [Avatars](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars)
+- [Privacy]()
 # Prebuild
 You can download a prebuilt installer from [releases](https://github.com/Terroriser1/Discord-Netflix/releases) if you want.
 # Building yourself

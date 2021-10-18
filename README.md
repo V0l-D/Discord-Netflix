@@ -27,8 +27,9 @@ Windows: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wik
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.
 # Preview
-![55EB_UOLQ](https://user-images.githubusercontent.com/35117713/127563891-a7598498-8134-4f1d-a338-6af55d2d673d.png)
-![55ECm03kV](https://user-images.githubusercontent.com/35117713/127564046-4edd767f-9e4c-4ab1-b939-2f0e40eacce3.png)
+![5d4u7F5XW](https://user-images.githubusercontent.com/35117713/137748112-7c62ac80-869f-43fb-affd-7760668f64c8.png)
+![5d4tMPD96](https://user-images.githubusercontent.com/35117713/137748120-ca24166f-ae01-4089-9f50-516909c68e8c.png)
+![5d4tFmXH_](https://user-images.githubusercontent.com/35117713/137748127-3e15de98-ff16-4f4b-b5ca-efa5d69b471b.png)
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->

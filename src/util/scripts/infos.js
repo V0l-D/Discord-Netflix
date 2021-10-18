@@ -13,7 +13,7 @@ module.exports = function () {
         userName = name
     }
 
-    if (type === 'browse') {
+    if (document.location.pathname.includes("/browse")) {
         return {
             name   : 'Browsing',
             episode: 'In the Catalogs',
@@ -22,7 +22,7 @@ module.exports = function () {
         }
     }
 
-    if (type === 'title') {
+    if (document.location.pathname.includes("/title")) {
         let jawBone = document.querySelector('.jawBone .title')
         let episode = jawBone.querySelector('.logo')
             ? jawBone.querySelector('.logo').getAttribute('alt')
@@ -36,17 +36,21 @@ module.exports = function () {
         }
     }
 
-    if (type === 'watch' && document.querySelector('.ellipsize-text')) {
+
+    //New fix | Discord UI update
+    if (document.location.pathname.includes("/watch")) {
         let name = document.querySelector('.ellipsize-text')
         //Let's get the video ID for the button
         let id = document.querySelector('[data-videoid]').dataset.videoid
-        let span = document.querySelector('.ellipsize-text').querySelectorAll('span')
-        let { duration, currentTime, paused } = document.querySelector('.VideoContainer').getElementsByTagName('video')[0]
-        let title = span[1] ? span[1].innerHTML : undefined
-        let episode = span[0] ? span[0].innerHTML : undefined
+        let { duration, currentTime, paused } = document.querySelector(".VideoContainer video")
+      ?? document.querySelector(".watch-video--player-view video");
+        let title = (document.querySelector("[data-uia$='video-title'] span:nth-child(3)")
+        ?? " ").textContent
+        let episode = (document.querySelector("[data-uia$='video-title'] span")
+        ?? " ").textContent
         let interactive = false
         // TODO: Better interactive video check. Severe problems are caused in the solutions currently found
-        name = name.querySelector('h4') ? name.querySelector('h4').innerText : name.innerText
-        return { name, title, episode, duration, currentTime, paused, interactive, avatar, userName, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}]}
+        name = (document.querySelector("[data-uia$='video-title']")).firstChild.textContent
+        return {duration, currentTime, paused, title, episode, userName, avatar, interactive, name, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}] }//duration, currentTime, paused}]}
     }
-}
+    }

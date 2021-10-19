@@ -15,6 +15,7 @@ You can download a prebuilt installer from [releases](https://github.com/Terrori
 [Node.js](https://nodejs.org/en/) (Version > 7.0.0)<br>
 [Git](https://git-scm.com/) (Version > Decently modern)<br>
 [Python](https://www.python.org/downloads/) (Version > 3.9.0)<br>
+[7Zip](https://www.7-zip.org/) (Version > 19.00)<br>
 
 Python is needed for the ECS certificate so Netflix is able to stream media over electron.
 # Testing

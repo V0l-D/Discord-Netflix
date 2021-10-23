@@ -17,7 +17,7 @@ You can download a prebuilt installer from [releases](https://github.com/Terrori
 [Python](https://www.python.org/downloads/) (Version > 3.9.0)<br>
 [7Zip](https://www.7-zip.org/) (Version > 19.00)<br>
 
-Python is needed for the ECS certificate so Netflix is able to stream media over electron.
+Python is needed for the ECS certificate so Netflix is able to stream media over electron, you also need to use the castlab's electron release to get a ECS certificate.
 # Testing
 You can use the command ``npm run start`` to test out the application after you installed all npm packages.
 # Building

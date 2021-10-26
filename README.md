@@ -21,9 +21,13 @@ Python is needed for the ECS certificate so Netflix is able to stream media over
 # Testing
 You can use the command ``npm run start`` to test out the application after you installed all npm packages.
 # Building
-Right now only Windows is supported for building and I am working on making this compatible for Linux and Mac aswell.<br>
+Windows, Mac and Linux are supported for building.<br>
 <br>
-Windows: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki)
+Windows: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#windows)
+<br>
+Mac: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#mac)
+<br>
+Linux: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#linux)
 <br>
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.

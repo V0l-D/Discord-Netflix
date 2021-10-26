@@ -2,7 +2,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/Terroriser1/Discord-Netflix/badge.svg)](https://snyk.io/test/github/Terroriser1/Discord-Netflix)
 # Discord-Netflix
 A updated version from the original Discord-Netflix from nirewen
-A Netflix wrapper that uses Discord RPC to show what you're watching using the new Rich Presence
+A Netflix wrapper that uses Discord RPC to show what you're watching using Rich Presence
 # Features
 - Max bitrate support
 - [Netflix party](https://github.com/Terroriser1/Discord-Netflix/wiki/Netflix-Party)
@@ -18,16 +18,10 @@ You can download a prebuilt installer from [releases](https://github.com/Terrori
 [7Zip](https://www.7-zip.org/) (Version > 19.00)<br>
 
 Python is needed for the ECS certificate so Netflix is able to stream media over electron, you also need to use the castlab's electron release to get a ECS certificate.
-# Testing
-You can use the command ``npm run start`` to test out the application after you installed all npm packages.
 # Building
-Windows, Mac and Linux are supported for building.<br>
+All major operating systems are supported being Windows, Mac and Linux though Mac still being in experimental mode you can expect issues there.<br>
 <br>
-Windows: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#windows)
-<br>
-Mac: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#mac)
-<br>
-Linux: Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki#linux)
+Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki)
 <br>
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.
@@ -41,6 +35,6 @@ Contribution is welcome I could use all the help that's there on this project to
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 ## Credits
-All credits go to the respected owners I want to thank Nirewen for making this project possible I was a fan of his Netflix wrapper sadly it got outdated. This is why I am making this remake.
+All credits go to the respected owners I want to thank Nirewen for making this project possible I was a fan of his Netflix wrapper sadly it got outdated. This is why I am making this updated version.
 ## Community
 You can join [this](https://discord.gg/mJYxxeZygw) Discord server for updates and more information about the project and chat with other people interested in this project.

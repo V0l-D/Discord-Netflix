@@ -9,6 +9,7 @@ A Netflix wrapper that uses Discord RPC to show what you're watching using Rich 
 - Discord RPC
 - [Avatars](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars)
 - [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy)
+- [Roadmap](https://github.com/Terroriser1/Discord-Netflix/wiki/Roadmap)
 # Prebuild
 You can download a prebuilt installer from [releases](https://github.com/Terroriser1/Discord-Netflix/releases) if you want.
 # Building yourself

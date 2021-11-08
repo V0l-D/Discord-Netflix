@@ -1,6 +1,6 @@
 {
   "projectName": "discord-netflix",
-  "projectOwner": "Terroriser1",
+  "projectOwner": "V0l-D",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -17,10 +17,10 @@
   },
   "contributors": [
      {
-      "login": "Terroriser1",
-      "name": "Maurice van Egmond",
+      "login": "V0l-D",
+      "name": "V0l-D",
       "avatar_url": "https://avatars.githubusercontent.com/u/35117713?v=4",
-      "profile": "https://github.com/Terroriser1",
+      "profile": "https://github.com/V0l-D",
       "contributions": [
         "code",
         "design"

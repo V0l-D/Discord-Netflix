@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Terroriser1/Discord-Netflix.git"
+    "url": "git+ssh://git@github.com/V0l-D/Discord-Netflix.git"
   },
-  "author": "Terroriser1",
+  "author": "V0l-D",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Terroriser1/Discord-Netflix/issues"
+    "url": "https://github.com/V0l-D/Discord-Netflix/issues"
   },
   "build": {
-    "appId": "com.netflix.Terroriser1",
+    "appId": "com.netflix.V0l-D",
     "win": {
       "target": "nsis-web",
       "icon": "./assets/icon.png"
@@ -39,7 +39,7 @@
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
-  "homepage": "https://github.com/Terroriser1/Discord-Netflix#readme",
+  "homepage": "https://github.com/V0l-D/Discord-Netflix#readme",
   "dependencies": {
     "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",

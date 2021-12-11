@@ -1614,6 +1614,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
         socket.on('connect', function () {
+            try{
             pushTask(ping)
             setInterval(function () {
                 if (tasksInFlight === 0) {
@@ -1628,6 +1629,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     pushTask(sync)
                 }
             }, 5000)
+        }
+        catch(error){
+            //Ignore error cause this can't be done in a proper way
+        }
         })
 
         // if the server goes down, it can reconstruct the session with this
@@ -2210,61 +2215,55 @@ let getElementByXPath = function (xpath) {
         WATCH_REGEXP.test(newLocation) && run();
       }
     }, 500);
-//Adblocking & Tracker blocking
-/*const { promises } = require("fs"); // used for caching
-const path = require("path");
 
-const { ElectronBlocker } = require("@cliqz/adblocker-electron");
-const fetch = require("node-fetch");
+    function stringToNode(str) {
+        const c = document.createElement('div');
+        c.innerHTML = str.trim();
+        return c.firstChild; 
+      }
+      
+      
+          const elements = {
+              "mediabtns_class": "medium ltr-1dcjcj4",
+              "player_tag": "video",
+          }
+          
+          const objects = {
+              "resbutton": stringToNode(`
+              <button aria-label="Picture in picture" class=" ltr-1enhvti" data-uia="control-next"><div class="control-medium ltr-18dhnor" role="presentation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="m19.55311,11.22226l-8.86379,0l0,6.42295l8.82237,0l0,-6.42295l0.04142,0zm4.39048,8.5907l0,-15.01365c0,-1.16416 -0.99407,-2.1276 -2.19524,-2.1276l-19.88141,0c-1.20117,0 -2.19524,0.9233 -2.19524,2.1276l0,15.01365c0,1.16416 0.99407,2.1276 2.19524,2.1276l19.88141,0c1.20117,0 2.19524,-0.96344 2.19524,-2.1276zm-2.19524,0l-19.88141,0l0,-15.01365l19.88141,0l0,15.01365z" fill="currentColor"></path></svg></div></button>
+              `)
+          }
+          
+          // X
+          const callback = function(mutationsList, observer) {
+              const controls = document.getElementsByClassName(elements["mediabtns_class"])[0]; // get the controls container
+      
+         
+              if(!controls) return; // the controls div hasn't been rendered yet.
+              observer.disconnect(); // stop listening for dom updates
+              
+              
+              // assign an onclick action for the button
+              controls.insertBefore(objects["resbutton"], controls.lastChild); // add an extra button to the controls menu
+              objects["resbutton"].addEventListener("click", function(e) {
+                  const player = document.getElementsByTagName("video")[0];
+                  
+                  player.requestPictureInPicture();
+              });
+          };
 
-//These domains are owned by me and have 24/7 uptime I changed them to be sure of privacy and uptime
-const SOURCES = [
-	"https://sinux.xyz/file1.txt",
-	// uBlock Origin
-	"https://sinux.xyz/file2.txt",
-	"https://sinux.xyz/file3.txt",
-	// Fanboy Annoyances
-	"https://sinux.xyz/file4.txt",
-];
+          let currentPage = location.href;
 
-const loadAdBlockerEngine = (
-	session = undefined,
-	cache = true,
-	additionalBlockLists = [],
-	disableDefaultLists = false
-) => {
-	// Only use cache if no additional blocklists are passed
-	const cachingOptions =
-		cache && additionalBlockLists.length === 0
-			? {
-					path: path.resolve(__dirname, "ad-blocker-engine.bin"),
-					read: promises.readFile,
-					write: promises.writeFile,
-			  }
-			: undefined;
-	const lists = [
-		...(disableDefaultLists ? [] : SOURCES),
-		...additionalBlockLists,
-	];
-
-	ElectronBlocker.fromLists(
-		fetch,
-		lists,
-		{
-			// when generating the engine for caching, do not load network filters
-			// So that enhancing the session works as expected
-			// Allowing to define multiple webRequest listeners
-			loadNetworkFilters: session !== undefined,
-		},
-		cachingOptions
-	)
-		.then((blocker) => {
-			if (session) {
-				blocker.enableBlockingInSession(session);
-			} else {
-				console.log("ADBLOCKER LOADED | DISCORD-NETFLIX");
-			}
-		})
-		.catch((err) => console.log("Error loading adBlocker engine", err));
-};
-loadAdBlockerEngine();*/
+// listen for changes
+setInterval(function()
+{
+    if (currentPage != location.href)
+    {
+        currentPage = location.href;
+        
+        observer.observe(document, { attributes: true, childList: true, subtree: true });
+    }
+}, 500);
+      
+          const observer = new MutationObserver(callback);
+          observer.observe(document, { attributes: true, childList: true, subtree: true });

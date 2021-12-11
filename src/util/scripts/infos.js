@@ -39,6 +39,8 @@ module.exports = function () {
 
     //New fix | Discord UI update
     if (document.location.pathname.includes("/watch")) {
+        try{
+
         let name = document.querySelector('.ellipsize-text')
         //Let's get the video ID for the button
         let id = document.querySelector('[data-videoid]').dataset.videoid
@@ -52,5 +54,9 @@ module.exports = function () {
         // TODO: Better interactive video check. Severe problems are caused in the solutions currently found
         name = (document.querySelector("[data-uia$='video-title']")).firstChild.textContent
         return {duration, currentTime, paused, title, episode, userName, avatar, interactive, name, button: [{ label: "Watch", url: "https://netflix.com/watch/" + id}] }//duration, currentTime, paused}]}
+    }
+    catch(error){
+        //Ignore error due new Netflix UI
+    }
     }
     }

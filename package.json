@@ -35,7 +35,7 @@
     "artifactName": "${productName}_Setup_${version}.${ext}",
     "electronVersion": "16.0.4",
     "electronDownload": {
-      "version": "13.2.3-wvvmp",
+      "version": "13.4.0-wvvmp",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },

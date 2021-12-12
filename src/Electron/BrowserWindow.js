@@ -12,6 +12,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             autoHideMenuBar: true,
             resizable: true,
             center: true,
+            fullscreenable: true,
             frame: true,
             alwaysOnTop: false,
             title,
@@ -28,7 +29,6 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         this.partyState = null
     }
     
-
     eval (code) {
         return this.webContents.executeJavaScript(code)
     }

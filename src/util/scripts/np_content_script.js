@@ -2267,3 +2267,58 @@ setInterval(function()
       
           const observer = new MutationObserver(callback);
           observer.observe(document, { attributes: true, childList: true, subtree: true });
+
+          //Add action button down below //EXPERIMENTAL!//
+         /* const actionBtnId = document.getElementById('actionBtnId');
+
+if (document.pictureInPictureEnabled) {
+    actionBtnId.disabled = false;
+ } else{
+    actionBtnId.disabled = true;
+ }
+
+function toggle() {
+  if (document.pictureInPictureElement) {
+      document.exitPictureInPicture();
+  } else if (document.pictureInPictureEnabled) {
+      video.requestPictureInPicture();
+  }
+}
+
+video.addEventListener('enterpictureinpicture', () => {
+  actionBtnId.textContent = 'Exit Picture-in-Picture mode';
+  actionBtnId.classList.add("redBtn");
+});
+
+video.addEventListener('leavepictureinpicture', () => {
+  actionBtnId.textContent = 'Enter Picture-in-Picture mode';
+  actionBtnId.classList.remove("redBtn");
+});
+
+          const elements2 = {
+            "mediabtns_class": "video",
+            "player_tag": "video",
+        }
+        
+        const objects2 = {
+            "resbutton": stringToNode(`
+            <button id="actionBtnId" class="action" onclick="toggle()" disabled>Enter Picture-in-Picture mode</button>
+            `)
+        }
+
+          const callback = function(mutationsList, observer) {
+            const controls = document.getElementsByClassName(elements2["mediabtns_class"])[0]; // get the controls container
+    
+       
+            if(!controls) return; // the controls div hasn't been rendered yet.
+            observer.disconnect(); // stop listening for dom updates
+            
+            
+            // assign an onclick action for the button
+            controls.insertBefore(objects2["resbutton"], controls.lastChild); // add an extra button to the controls menu
+            objects2["resbutton"].addEventListener("click", function(e) {
+                const player = document.getElementsByTagName("video")[0];
+                
+                player.requestPictureInPicture();
+            });
+        };*/

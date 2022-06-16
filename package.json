@@ -53,7 +53,7 @@
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
-    "electron": "16.0.6",
+    "electron": "16.2.6",
     "electron-builder": "22.14.10",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",

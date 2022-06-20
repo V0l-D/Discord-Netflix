@@ -1,9 +1,19 @@
-const { app, BrowserWindow, Notification } = require('./Electron')
-const { Client } = require('./RPC')
-const { NetflixParty } = require('./NetflixParty')
+const {
+    app,
+    BrowserWindow,
+    Notification
+} = require('./Electron')
+const {
+    Client
+} = require('./RPC')
+const {
+    NetflixParty
+} = require('./NetflixParty')
 const path = require('path')
 const discordRegister = require('electron-discord-register')
-const { ipcMain } = require('electron')
+const {
+    ipcMain
+} = require('electron')
 
 app.setAppUserModelId('com.netflix.Terroriser1')
 
@@ -15,7 +25,7 @@ discordRegister(clientId)
 
 let mainWindow
 const rpc = new Client({
-    transport: 'ipc', 
+    transport: 'ipc',
     clientId
 })
 const party = new NetflixParty()
@@ -36,14 +46,16 @@ app.on('ready', () => {
     })
 
     mainWindow.maximize()
-    mainWindow.loadURL('https://netflix.com/browse',{ userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36    "});//Useragent spoofing to Chrome on Windows 10
+    mainWindow.loadURL('https://netflix.com/browse', {
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36    "
+    }); //Useragent spoofing to Chrome on Windows 10
 
     party.ipcSetup(mainWindow)
     let navigationLoad = (loadType) => {
         // This is a bit ugly but it works
-        let type = mainWindow.webContents.getURL().split('/').slice(1, 4)[2]  
-		
-		mainWindow.webContents.send('np', {
+        let type = mainWindow.webContents.getURL().split('/').slice(1, 4)[2]
+
+        mainWindow.webContents.send('np', {
             type: 'navigation',
         })
 
@@ -103,7 +115,7 @@ app.on('rpc', () => {
             mainWindow.loadURL('https://netflix.com/watch/' + videoId).then(() => {
                 const currentURL = mainWindow.webContents.getURL()
                 console.log(currentURL)
-              })
+            })
         })
     }).catch(e => {
         let notification = new Notification({
@@ -117,5 +129,3 @@ app.on('rpc', () => {
         notification.on('click', () => app.emit('rpc'))
     })
 })
-  
-  

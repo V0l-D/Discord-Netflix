@@ -2223,16 +2223,16 @@ let getElementByXPath = function (xpath) {
       }
       
       
-          const elements = {
-              "mediabtns_class": "medium ltr-1dcjcj4",
-              "player_tag": "video",
-          }
-          
-          const objects = {
-              "resbutton": stringToNode(`
-              <button aria-label="Picture in picture" class=" ltr-1enhvti" data-uia="control-next"><div class="control-medium ltr-18dhnor" role="presentation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="m19.55311,11.22226l-8.86379,0l0,6.42295l8.82237,0l0,-6.42295l0.04142,0zm4.39048,8.5907l0,-15.01365c0,-1.16416 -0.99407,-2.1276 -2.19524,-2.1276l-19.88141,0c-1.20117,0 -2.19524,0.9233 -2.19524,2.1276l0,15.01365c0,1.16416 0.99407,2.1276 2.19524,2.1276l19.88141,0c1.20117,0 2.19524,-0.96344 2.19524,-2.1276zm-2.19524,0l-19.88141,0l0,-15.01365l19.88141,0l0,15.01365z" fill="currentColor"></path></svg></div></button>
-              `)
-          }
+      const elements = {
+		"mediabtns_class": "medium ltr-7s9m83-controlContainerCss",
+		"player_tag": "video",
+	}
+	
+	const objects = {
+		"resbutton": stringToNode(`
+			<button class="olesodynets-custombtn touchable PlayerControls--control-element nfp-button-control default-control-button button-nfplayerEpisodes" tabindex="0" role="button" aria-label="More Episodes"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="m19.55311,11.22226l-8.86379,0l0,6.42295l8.82237,0l0,-6.42295l0.04142,0zm4.39048,8.5907l0,-15.01365c0,-1.16416 -0.99407,-2.1276 -2.19524,-2.1276l-19.88141,0c-1.20117,0 -2.19524,0.9233 -2.19524,2.1276l0,15.01365c0,1.16416 0.99407,2.1276 2.19524,2.1276l19.88141,0c1.20117,0 2.19524,-0.96344 2.19524,-2.1276zm-2.19524,0l-19.88141,0l0,-15.01365l19.88141,0l0,15.01365z" fill="currentColor"></path></svg></button>
+		`)
+	}
           
           // X
           const callback = function(mutationsList, observer) {
@@ -2268,57 +2268,4 @@ setInterval(function()
           const observer = new MutationObserver(callback);
           observer.observe(document, { attributes: true, childList: true, subtree: true });
 
-          //Add action button down below //EXPERIMENTAL!//
-         /* const actionBtnId = document.getElementById('actionBtnId');
-
-if (document.pictureInPictureEnabled) {
-    actionBtnId.disabled = false;
- } else{
-    actionBtnId.disabled = true;
- }
-
-function toggle() {
-  if (document.pictureInPictureElement) {
-      document.exitPictureInPicture();
-  } else if (document.pictureInPictureEnabled) {
-      video.requestPictureInPicture();
-  }
-}
-
-video.addEventListener('enterpictureinpicture', () => {
-  actionBtnId.textContent = 'Exit Picture-in-Picture mode';
-  actionBtnId.classList.add("redBtn");
-});
-
-video.addEventListener('leavepictureinpicture', () => {
-  actionBtnId.textContent = 'Enter Picture-in-Picture mode';
-  actionBtnId.classList.remove("redBtn");
-});
-
-          const elements2 = {
-            "mediabtns_class": "video",
-            "player_tag": "video",
-        }
-        
-        const objects2 = {
-            "resbutton": stringToNode(`
-            <button id="actionBtnId" class="action" onclick="toggle()" disabled>Enter Picture-in-Picture mode</button>
-            `)
-        }
-
-          const callback = function(mutationsList, observer) {
-            const controls = document.getElementsByClassName(elements2["mediabtns_class"])[0]; // get the controls container
-    
-       
-            if(!controls) return; // the controls div hasn't been rendered yet.
-            observer.disconnect(); // stop listening for dom updates
-            
-            
-            // assign an onclick action for the button
-            controls.insertBefore(objects2["resbutton"], controls.lastChild); // add an extra button to the controls menu
-            objects2["resbutton"].addEventListener("click", function(e) {
-                const player = document.getElementsByTagName("video")[0];
-                
-                player.requestPictureInPicture();
-            });
-        };*/
+          

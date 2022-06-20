@@ -46,7 +46,7 @@
     "electron-localshortcut": "3.2.1",
     "glob-to-regexp": "0.4.1",
     "jquery": "3.6.0",
-    "moment": "2.29.2",
+    "moment": "2.29.3",
     "setimmediate": "1.0.5",
     "socket.io-client": "4.5.1",
     "update-electron-app": "2.0.1",

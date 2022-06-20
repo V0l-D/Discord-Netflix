@@ -48,7 +48,7 @@
     "jquery": "3.6.0",
     "moment": "2.29.2",
     "setimmediate": "1.0.5",
-    "socket.io-client": "4.4.1",
+    "socket.io-client": "4.5.1",
     "update-electron-app": "2.0.1",
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },

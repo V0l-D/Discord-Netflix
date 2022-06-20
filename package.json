@@ -48,12 +48,12 @@
     "jquery": "3.6.0",
     "moment": "2.29.3",
     "setimmediate": "1.0.5",
-    "socket.io-client": "4.4.1",
+    "socket.io-client": "4.5.1",
     "update-electron-app": "2.0.1",
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
-    "electron": "16.0.6",
+    "electron": "16.2.6",
     "electron-builder": "22.14.10",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",

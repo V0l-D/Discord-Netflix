@@ -2224,7 +2224,7 @@ let getElementByXPath = function (xpath) {
       
       
       const elements = {
-		"mediabtns_class": "medium ltr-7s9m83-controlContainerCss",
+		"mediabtns_class": "medium ltr-1dcjcj4",
 		"player_tag": "video",
 	}
 	

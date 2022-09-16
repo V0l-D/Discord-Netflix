@@ -45,7 +45,7 @@
     "electron-discord-register": "1.0.0",
     "electron-localshortcut": "3.2.1",
     "glob-to-regexp": "0.4.1",
-    "jquery": "3.6.0",
+    "jquery": "3.6.1",
     "moment": "2.29.4",
     "setimmediate": "1.0.5",
     "socket.io-client": "4.5.1",

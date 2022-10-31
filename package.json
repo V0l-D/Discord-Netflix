@@ -30,7 +30,7 @@
     },
     "mac": {
       "target": "dmg",
-      "icon": "./assets/icon.png"
+      "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
     "electronVersion": "16.0.4",
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "electron": "16.2.6",
-    "electron-builder": "22.14.10",
+    "electron-builder": "^23.0.2",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",
     "eslint": "7.31.0",

@@ -11,11 +11,12 @@ const {
 } = require('./NetflixParty')
 const path = require('path')
 const discordRegister = require('electron-discord-register')
+const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
 const {
     ipcMain,
     nativeImage
 } = require('electron')
-
+const { Menu } = require('electron');
 app.setAppUserModelId('com.netflix.Terroriser1')
 
 const icons = {
@@ -39,17 +40,44 @@ let joinSession = null
 
 rpc.on('ready', () => {
     mainWindow.checkNetflix()
-
+    components.whenReady()
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
+
+      // setup the titlebar main process
+      setupTitlebar();
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         rpc,
-        title: 'Netflix',
         icon,
         party,
+        titleBarStyle: 'hidden',
+        frame: false, // needed if process.versions.electron < 14
+        webPreferences: {
+          sandbox: false,
+          preload: path.join(__dirname, 'util/scripts/np_content_script.js')
+        }
     })
+
+    const menu = Menu.buildFromTemplate(exampleMenuTemplate());
+    Menu.setApplicationMenu(menu);
+
+//attach fullscreen(f11 and not 'maximized') && focus listeners
+attachTitlebarToWindow(mainWindow);
+
+  app.on('activate', function () {
+    // On macOS it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  })
+
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit();
+})
 
     mainWindow.maximize()
     mainWindow.loadURL('https://netflix.com/browse', {
@@ -135,3 +163,23 @@ app.on('rpc', () => {
         notification.on('click', () => app.emit('rpc'))
     })
 })
+//Will use this also for update checking and settings menu in the future
+const exampleMenuTemplate = () => [
+    {
+      label: "Other",
+      submenu: [
+        {
+          label: "Discord",
+          click: function () { require('electron').shell.openExternal('https://discord.gg/kbf8EjpxbU'); }
+        },
+        {
+          label: "Github",
+          click: function () { require('electron').shell.openExternal('https://github.com/V0l-D/Discord-Netflix'); }
+        },
+        {
+            label: "Dev console",
+            role: "toggleDevTools"
+          }
+      ]
+    }
+  ];

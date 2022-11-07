@@ -3,6 +3,7 @@ const scripts = require('../util/scripts')
 const moment = require('moment')
 const crypto = require('crypto')
 const path = require('path')
+const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor({
@@ -20,11 +21,14 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             fullscreenable: true,
             frame: true,
             alwaysOnTop: false,
+            titleBarStyle: 'hidden',
+            frame: false,
             title,
             icon,
             webPreferences: {
                 nodeIntegration: false,
                 plugins: true,
+                sandbox: false,
                 preload: path.join(__dirname, '../util/scripts/np_content_script.js'),
             }
         })
@@ -33,6 +37,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         this.party = party
         this.partyState = null
     }
+
 
     eval(code) {
         return this.webContents.executeJavaScript(code)

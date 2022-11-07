@@ -1,6 +1,6 @@
 {
   "name": "Netflix",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A Netflix wrapper with Discord Rich Presence",
   "main": "src/index.js",
   "scripts": {
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Terroriser1/Discord-Netflix.git"
+    "url": "git+ssh://git@github.com/V0l-D/Discord-Netflix.git"
   },
-  "author": "Terroriser1",
+  "author": "V0l-D",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Terroriser1/Discord-Netflix/issues"
+    "url": "https://github.com/V0l-D/Discord-Netflix/issues"
   },
   "build": {
-    "appId": "com.netflix.Terroriser1",
+    "appId": "com.netflix.V0l-D",
     "win": {
       "target": "nsis-web",
       "icon": "./assets/icon.png"
@@ -33,14 +33,15 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "16.0.4",
+    "electronVersion": "22.0.0-beta.3",
     "electronDownload": {
       "version": "13.4.0-wvvmp",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
-  "homepage": "https://github.com/Terroriser1/Discord-Netflix#readme",
+  "homepage": "https://github.com/V0l-D/Discord-Netflix#readme",
   "dependencies": {
+    "custom-electron-titlebar": "^4.1.2",
     "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",
     "electron-localshortcut": "3.2.1",
@@ -53,8 +54,7 @@
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
-    "electron": "16.2.6",
-    "electron-builder": "^23.0.2",
+    "electron-builder": "^22.10.3",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",
     "eslint": "7.31.0",

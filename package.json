@@ -30,7 +30,7 @@
     },
     "mac": {
       "target": "dmg",
-      "icon": "./assets/icon.png"
+      "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
     "electronVersion": "16.0.4",
@@ -45,16 +45,16 @@
     "electron-discord-register": "1.0.0",
     "electron-localshortcut": "3.2.1",
     "glob-to-regexp": "0.4.1",
-    "jquery": "3.6.0",
-    "moment": "2.29.3",
+    "jquery": "3.6.1",
+    "moment": "2.29.4",
     "setimmediate": "1.0.5",
-    "socket.io-client": "4.5.1",
+    "socket.io-client": "4.5.3",
     "update-electron-app": "2.0.1",
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
     "electron": "16.2.6",
-    "electron-builder": "22.14.10",
+    "electron-builder": "^23.0.2",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",
     "eslint": "7.31.0",

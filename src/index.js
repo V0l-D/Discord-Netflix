@@ -12,12 +12,18 @@ const {
 const path = require('path')
 const discordRegister = require('electron-discord-register')
 const {
-    ipcMain
+    ipcMain,
+    nativeImage
 } = require('electron')
 
 app.setAppUserModelId('com.netflix.Terroriser1')
 
-const icon = path.join(__dirname, '../assets/icon.png')
+const icons = {
+    win32: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
+    linux: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
+    darwin: nativeImage.createFromPath(path.join(__dirname, `../assets/iconmac.png`))
+}
+const icon = process.platform === 'win32' ? icons.win32 : process.platform === 'darwin' ? icons.darwin : icons.linux
 const clientId = '868487355114323968'
 
 // Register the application with Discord for join requests

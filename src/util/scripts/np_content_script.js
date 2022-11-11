@@ -2268,33 +2268,3 @@ setInterval(function()
           const observer = new MutationObserver(callback);
           observer.observe(document, { attributes: true, childList: true, subtree: true });
 
-          // All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
-const { Titlebar, Color } = require('custom-electron-titlebar');
-const path = require('path');
-
-let titlebar;
-const url = require('url');
-
-window.addEventListener('DOMContentLoaded', () => {
-  titlebar = new Titlebar({
-    backgroundColor: Color.fromHex("#262626"),
-    //itemBackgroundColor: Color.fromHex("#ffffff"),
-    svgColor: Color.WHITE,
-    icon: url.format("https://raw.githubusercontent.com/V0l-D/Discord-Netflix/main/assets/icon.png"),
-    //menuPosition: 'bottom',
-    //menu: null // = do not automatically use Menu.applicationMenu
-    menuTransparent: 80,
-  })
-
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
-
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
-})
-
-          

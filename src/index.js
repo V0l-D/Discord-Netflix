@@ -11,13 +11,12 @@ const {
 } = require('./NetflixParty')
 const path = require('path')
 const discordRegister = require('electron-discord-register')
-const { setupTitlebar, attachTitlebarToWindow } = require('custom-electron-titlebar/main');
 const {
     ipcMain,
     nativeImage
 } = require('electron')
 const { Menu } = require('electron');
-app.setAppUserModelId('com.netflix.Terroriser1')
+app.setAppUserModelId('com.netflix.V0l-D')
 
 const icons = {
     win32: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
@@ -38,46 +37,65 @@ const rpc = new Client({
 const party = new NetflixParty()
 let joinSession = null
 
+//small fix for linux peepz
+//app.commandLine.appendSwitch('--no-sandbox')
+
 rpc.on('ready', () => {
     mainWindow.checkNetflix()
     components.whenReady()
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
 
-      // setup the titlebar main process
-      setupTitlebar();
+    //Attempt on auto updater
+   /* const {autoUpdater} = require('electron-updater');
+    const log = require('electron-log');
+    log.transports.file.resolvePath = () => path.join(`C:\Users\top05\Desktop\Discord-Netflix-main\logs`, 'main.log');
+    log.log("Application version = "+ app.getVersion())
+
+    autoUpdater.on("update-available",(info)=>{
+        log.info("update-available");
+    })
+    
+    autoUpdater.on("checking-for-update",(info)=>{
+        log.info("checking-for-update");
+    })
+    
+    autoUpdater.on("download-progress",(info)=>{
+        log.info("download-progress");
+    })
+    
+    autoUpdater.on("update-downloaded",(info)=>{
+        log.info("update-downloaded");
+    })
+    
+    autoUpdater.on("update-not-available",(info)=>{
+        log.info("update-not-available");
+    })
+    
+    autoUpdater.on("error",(err)=>{
+        log.info("Error while updating. " + err);
+    })
+    
+    autoUpdater.on("download-progress",(progressTrack)=>{
+        log.info("\n\ndownload-progress")
+    log.info(progressTrack)
+    })*/
 
 app.on('ready', () => {
+   // autoUpdater.checkForUpdatesAndNotify()
     mainWindow = new BrowserWindow({
         rpc,
         icon,
         party,
-        titleBarStyle: 'hidden',
-        frame: false, // needed if process.versions.electron < 14
-        webPreferences: {
-          sandbox: false,
-          preload: path.join(__dirname, 'util/scripts/np_content_script.js')
-        }
     })
 
-    const menu = Menu.buildFromTemplate(exampleMenuTemplate());
-    Menu.setApplicationMenu(menu);
+    const {components} = require('electron');
 
-//attach fullscreen(f11 and not 'maximized') && focus listeners
-attachTitlebarToWindow(mainWindow);
-
-  app.on('activate', function () {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  })
-
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit();
-})
+app.whenReady().then(async () => {
+  await components.whenReady();
+  console.log('components ready:', components.status());
+  createWindow();
+});
 
     mainWindow.maximize()
     mainWindow.loadURL('https://netflix.com/browse', {
@@ -163,23 +181,3 @@ app.on('rpc', () => {
         notification.on('click', () => app.emit('rpc'))
     })
 })
-//Will use this also for update checking and settings menu in the future
-const exampleMenuTemplate = () => [
-    {
-      label: "Other",
-      submenu: [
-        {
-          label: "Discord",
-          click: function () { require('electron').shell.openExternal('https://discord.gg/kbf8EjpxbU'); }
-        },
-        {
-          label: "Github",
-          click: function () { require('electron').shell.openExternal('https://github.com/V0l-D/Discord-Netflix'); }
-        },
-        {
-            label: "Dev console",
-            role: "toggleDevTools"
-          }
-      ]
-    }
-  ];

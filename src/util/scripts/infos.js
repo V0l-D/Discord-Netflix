@@ -41,7 +41,7 @@ module.exports = function() {
         }
     }
 
-    if (document.location.pathname.includes("/watch")) {
+   // if (document.location.pathname.includes("/watch")) {
         //run pip file here
         /*
                     let $togglePipBtn
@@ -130,7 +130,7 @@ module.exports = function() {
                   logDebug('Check for video control row in DOM and add PiP toggle')
                   tryAddPipToggleButton()
                 }, 10) // every 10ms*/
-        }
+       // }
 
 
     //New fix | Discord UI update

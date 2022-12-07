@@ -15,8 +15,8 @@ const {
     ipcMain,
     nativeImage
 } = require('electron')
-const { Menu } = require('electron');
-app.setAppUserModelId('com.netflix.V0l-D')
+const { Menu, components } = require('electron');
+app.setAppUserModelId('Discord-Netflix')
 
 const icons = {
     win32: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
@@ -42,7 +42,6 @@ let joinSession = null
 
 rpc.on('ready', () => {
     mainWindow.checkNetflix()
-    components.whenReady()
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
 
@@ -89,13 +88,10 @@ app.on('ready', () => {
         party,
     })
 
-    const {components} = require('electron');
-
-app.whenReady().then(async () => {
-  await components.whenReady();
-  console.log('components ready:', components.status());
-  createWindow();
-});
+    app.whenReady().then(() => {
+        omponents.whenReady();
+        createWindow();
+      })
 
     mainWindow.maximize()
     mainWindow.loadURL('https://netflix.com/browse', {

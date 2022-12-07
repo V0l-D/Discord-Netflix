@@ -1,10 +1,10 @@
 {
   "name": "Netflix",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "A Netflix wrapper with Discord Rich Presence",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron . ",
+    "start": "electron .",
     "macbuild": "electron-builder -m",
     "linbuild": "electron-builder -l",
     "winbuild": "electron-builder -w"
@@ -19,7 +19,7 @@
     "url": "https://github.com/V0l-D/Discord-Netflix/issues"
   },
   "build": {
-    "appId": "com.netflix.V0l-D",
+    "appId": "Discord-Netflix",
     "win": {
       "target": "nsis-web",
       "icon": "./assets/icon.png"

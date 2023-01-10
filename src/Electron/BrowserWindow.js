@@ -23,6 +23,8 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             icon,
             webPreferences: {
                 nodeIntegration: false,
+                contextIsolation: true,
+                sandbox: false, // add this
                 plugins: true,
                 preload: path.join(__dirname, '../util/scripts/np_content_script.js'), 
             } //Fast fix oops
@@ -31,9 +33,6 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         this.party = party
         this.partyState = null
     }
-
-    
-
 
     eval(code) {
         return this.webContents.executeJavaScript(code)
@@ -125,5 +124,6 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             this.rpc.setActivity(activity)
         }
     }
+    
 
 }

@@ -38,17 +38,34 @@ const party = new NetflixParty()
 let joinSession = null
 
 //small fix for linux peepz
-//app.commandLine.appendSwitch('--no-sandbox')
+app.commandLine.appendSwitch('--no-sandbox')
 
 rpc.on('ready', () => {
     mainWindow.checkNetflix()
+    components.whenReady()
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
 
     //Attempt on auto updater
-   /* const {autoUpdater} = require('electron-updater');
+    const {autoUpdater} = require('electron-updater');
+
+    // --[[ From here is all Dianostic information (removed on packaged build to save memory) ]]--
+
+    // Let's create the logs folder
+    let fs = require('fs')
+
+    let DIR = 'logs'
+    
+    fs.mkdir(DIR, (error) => {
+      if(error){
+        console.log('Folder exists already.')
+      } else {
+        console.log('New folder has been created.')
+      }
+    })
+
     const log = require('electron-log');
-    log.transports.file.resolvePath = () => path.join(`C:\Users\top05\Desktop\Discord-Netflix-main\logs`, 'main.log');
+   // log.transports.file.resolvePath = () => path.join(`path name here`, 'main.log'); //needs more work to work universal!
     log.log("Application version = "+ app.getVersion())
 
     autoUpdater.on("update-available",(info)=>{
@@ -78,10 +95,11 @@ rpc.on('ready', () => {
     autoUpdater.on("download-progress",(progressTrack)=>{
         log.info("\n\ndownload-progress")
     log.info(progressTrack)
-    })*/
+    })
+      // --[[ End Dianostic information ]]--
 
 app.on('ready', () => {
-   // autoUpdater.checkForUpdatesAndNotify()
+    autoUpdater.checkForUpdatesAndNotify()
     mainWindow = new BrowserWindow({
         rpc,
         icon,

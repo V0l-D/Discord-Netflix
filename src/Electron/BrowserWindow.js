@@ -21,6 +21,11 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
             alwaysOnTop: false,
             title,
             icon,
+            webPreferences: {
+                nodeIntegration: false,
+                plugins: true,
+                preload: path.join(__dirname, '../util/scripts/np_content_script.js'), 
+            } //Fast fix oops
         })
         this.rpc = rpc
         this.party = party

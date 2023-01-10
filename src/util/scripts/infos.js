@@ -41,97 +41,97 @@ module.exports = function() {
         }
     }
 
-   // if (document.location.pathname.includes("/watch")) {
-        //run pip file here
-        /*
-                    let $togglePipBtn
-            const ICON_SVG =
-            '<svg id="pip" width="24" height="24" viewBox="0 0 24 24" class="Hawkins-Icon Hawkins-Icon-Standard" xmlns="http://www.w3.org/2000/svg" data-uia="control-pip-enter">' +
-              '<g>' +
-                '<path fill-rule="evernodd" clip-rule="evernodd" fill="currentColor" d="m19.55311,11.22226l-8.86379,0l0,6.42295l8.82237,0l0,-6.42295l0.04142,0zm4.39048,8.5907l0,-15.01365c0,-1.16416 -0.99407,-2.1276 -2.19524,-2.1276l-19.88141,0c-1.20117,0 -2.19524,0.9233 -2.19524,2.1276l0,15.01365c0,1.16416 0.99407,2.1276 2.19524,2.1276l19.88141,0c1.20117,0 2.19524,-0.96344 2.19524,-2.1276zm-2.19524,0l-19.88141,0l0,-15.01365l19.88141,0l0,15.01365z"/>' +
-              '</g>' +
-            '</svg>'
+    //Fixed PIP Credits to kuzudoli: https://github.com/kuzudoli/Miniflix-edge-extension
+    (function(){
+        console.log("PIP Hooked!")
+        //Creates button parent element
+        const btnParent = document.createElement("div");
+        //Styling button
+        btnParent.style.position = "relative";
+        btnParent.style.zIndex = "1";
+        btnParent.style.textAlign = "center";
+        btnParent.style.opacity = "0";
+        btnParent.addEventListener("mouseover", () => {
+            btnParent.style.opacity = "1";
+            setTimeout(() => {
+                btnParent.style.opacity = "0";
+            },2000);
+        });
+    
+        //Button element
+        btnParent.innerHTML =
+        `
+            <button id='pipBtn' 
+                style='width:30px;
+                        background-color:rgba(0, 0, 0, 0);
+                        margin-top:15px;     
+            '><svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="m19.55311,11.22226l-8.86379,0l0,6.42295l8.82237,0l0,-6.42295l0.04142,0zm4.39048,8.5907l0,-15.01365c0,-1.16416 -0.99407,-2.1276 -2.19524,-2.1276l-19.88141,0c-1.20117,0 -2.19524,0.9233 -2.19524,2.1276l0,15.01365c0,1.16416 0.99407,2.1276 2.19524,2.1276l19.88141,0c1.20117,0 2.19524,-0.96344 2.19524,-2.1276zm-2.19524,0l-19.88141,0l0,-15.01365l19.88141,0l0,15.01365z" fill="currentColor"></path></svg>
+            </button>
+        `
+        //Waits loading video element
+        const observer = new MutationObserver((mutations, obs) => {
+            const targetNode = document.querySelector('body');
             
-            const DEBUG = false
-            
-            function logDebug (msg) {
-              if (!DEBUG) { return }
-              console.log(`${msg}`)
-            }
-            
-            function tryAddPipToggleButton () {
-              const video = ('video')
-              const playerControlRow = ('div[data-uia="controls-standard"]')
-              togglePipBtn = ('button[data-uia="control-pip-enter"]')
-              if (playerControlRow.length && video.length && !togglePipBtn.length) {
-                const fullscreenBtn = ('button[data-uia="control-fullscreen-enter"]')
-                const btnContainter = fullscreenBtn.parent().parent()
-            
-                // Clone fullcreen toggle and re-append as PiP toggle
-                const fullscreenToggleClone = fullscreenBtn.parent().clone()
-                const separatorClone = fullscreenBtn.parent().prev('div').clone()
-            
-                // Override existing attributes
-                fullscreenToggleClone.find('button').attr('data-uia', 'control-pip-enter')
-                fullscreenToggleClone.find('button').attr('aria-label', 'Picture in picture')
-                fullscreenToggleClone.find('svg').replaceWith(ICON_SVG)
-                ('svg[pip]').each(function () {
-                  this.width = this.parentNode.width
-                  this.height = this.parentNode.height
-                })
-            
-                // Re-assign
-                const pipToggle = fullscreenToggleClone
-            
-                // Append to the video controls
-                separatorClone.appendTo(btnContainter)
-                pipToggle.appendTo(btnContainter)
-                logDebug('Netflix PiP appended to controls')
-            
-                pipToggle.mouseover(async function (event) {
-                  pipToggle.addClass('active')
-                  pipToggle.attr('style', 'transform: scale(1.2);')
-                })
-            
-                pipToggle.mouseleave(async function (event) {
-                  pipToggle.removeClass('active')
-                  pipToggle.removeAttr('style')
-                })
-            
-            pipToggle.click(async function (event) {
-                  pipToggle.disabled = true // disable toggle button while the event occurs
-                  try {
-                    // If there is no element in Picture-in-Picture yet, request for it
-                    if (video !== document.pictureInPictureElement) {
-                      await video[0].requestPictureInPicture()
-                    } else {
-                      // If Picture-in-Picture already exists, exit the mode
-                      await document.exitPictureInPicture()
+            //Parses url and gets id
+            const url = window.location.href.toString().split('/');
+            if(url[4]){//Video Id
+                const filmId = url[4].split('?')[0];
+                const videoNode = document.getElementById(filmId);
+    
+                if (videoNode) {
+                    targetNode.prepend(btnParent);//Adds PIP button
+                    obs.disconnect();
+                    return;
+                }
+            }        
+        });
+        
+        //Which changes must listen in elements
+        observer.observe(document, {
+            childList: true,
+            subtree: true
+        });
+    
+        //Waits loading PIP button
+        const observer2 = new MutationObserver((mutations, obs) => {
+            const pipBtn = document.getElementById('pipBtn');
+    
+            //Parses url and gets id
+            const url = window.location.href.toString().split('/');
+            if(url[4]){//Video Id
+                const filmId = url[4].split('?')[0];
+                if (pipBtn) {
+                    const videoNode = document.getElementById(filmId);
+                    const video = videoNode.firstElementChild;
+                    //console.log(video);
+                    pipBtn.style.border = "none";
+                    if("pictureInPictureEnabled" in document){//If PIP mode enabled adds event listener for disabling
+                        pipBtn.addEventListener("click",() => {
+                            if(document.pictureInPictureElement){
+                                document.exitPictureInPicture().catch(err=>{
+                                    console.log(err);
+                                });
+                                return;
+                            }
+                            video.requestPictureInPicture().catch(err=>{
+                                console.log(err);
+                            })
+                        })
                     }
-                  } catch (error) {
-                    logDebug(`Error! ${error}`)
-                  } finally {
-                    pipToggle.disabled = false // enable toggle button after the event
-                  }
-                })
-            
-                video.bind('enterpictureinpicture', function (event) {
-                  logDebug('Netflix watch entered PiP')
-                })
-            
-                video.bind('leavepictureinpicture', function (event) {
-                  logDebug('Netflix watch left PiP')
-                  pipToggle.disabled = false
-                })
-              }
+                    obs.disconnect();
+                    return;
+                }
             }
-
-                setInterval(function () {
-                  logDebug('Check for video control row in DOM and add PiP toggle')
-                  tryAddPipToggleButton()
-                }, 10) // every 10ms*/
-       // }
-
+            
+        });
+    
+        //Which changes must listen in elements
+        observer2.observe(document, {
+            childList: true,
+            subtree: true
+        });
+    
+    })();
 
     //New fix | Discord UI update
     if (document.location.pathname.includes("/watch")) {

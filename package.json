@@ -1,6 +1,6 @@
 {
   "name": "Netflix",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "A Netflix wrapper with Discord Rich Presence",
   "main": "src/index.js",
   "scripts": {
@@ -40,9 +40,9 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "21.3.3",
+    "electronVersion": "27.1.0",
     "electronDownload": {
-      "version": "21.3.3+wvcus",
+      "version": "27.1.0+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
@@ -60,7 +60,7 @@
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
-    "electron": "^22.3.25",
+    "electron": "^27.1.0",
     "electron-builder": "^24.0.0",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",

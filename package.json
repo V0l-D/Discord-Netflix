@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "electron": "^27.1.0",
-    "electron-builder": "^24.0.0",
+    "electron-builder": "^24.13.3",
     "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",
     "eslint": "7.31.0",

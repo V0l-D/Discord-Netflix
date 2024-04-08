@@ -1,6 +1,6 @@
 {
   "name": "Netflix",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "A Netflix wrapper with Discord Rich Presence",
   "main": "src/index.js",
   "scripts": {
@@ -19,13 +19,6 @@
     "url": "https://github.com/V0l-D/Discord-Netflix/issues"
   },
   "build": {
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "V0l-D",
-        "repo": "Discord-Netflix"
-      }
-    ],
     "appId": "Discord-Netflix",
     "win": {
       "target": "nsis-web",
@@ -40,9 +33,9 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "27.1.0",
+    "electronVersion": "30.0.0-beta.6+wvcus",
     "electronDownload": {
-      "version": "27.1.0+wvcus",
+      "version": "30.0.0-beta.6+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
@@ -60,9 +53,9 @@
     "xmldom": "github:xmldom/xmldom#0.7.5"
   },
   "devDependencies": {
-    "electron": "^27.1.0",
+    "@electron/notarize": "^2.3.0",
+    "electron": "^30.0.0-beta.6+wvcus",
     "electron-builder": "^24.13.3",
-    "electron-notarize": "1.1.1",
     "electron-reload": "2.0.0-alpha.1",
     "eslint": "7.31.0",
     "eslint-plugin-import": "2.23.4",

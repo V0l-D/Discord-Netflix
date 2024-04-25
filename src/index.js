@@ -46,60 +46,7 @@ rpc.on('ready', () => {
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
 
-    //Attempt on auto updater
-    const {autoUpdater} = require('electron-updater');
-
-    // --[[ From here is all Dianostic information (removed on packaged build to save memory) ]]--
-
-    // Let's create the logs folder
-    let fs = require('fs')
-
-    let DIR = 'logs'
-    
-    fs.mkdir(DIR, (error) => {
-      if(error){
-        console.log('Folder exists already.')
-      } else {
-        console.log('New folder has been created.')
-      }
-    })
-
-    const log = require('electron-log');
-   // log.transports.file.resolvePath = () => path.join(`path name here`, 'main.log'); //needs more work to work universal!
-    log.log("Application version = "+ app.getVersion())
-
-    autoUpdater.on("update-available",(info)=>{
-        log.info("update-available");
-    })
-    
-    autoUpdater.on("checking-for-update",(info)=>{
-        log.info("checking-for-update");
-    })
-    
-    autoUpdater.on("download-progress",(info)=>{
-        log.info("download-progress");
-    })
-    
-    autoUpdater.on("update-downloaded",(info)=>{
-        log.info("update-downloaded");
-    })
-    
-    autoUpdater.on("update-not-available",(info)=>{
-        log.info("update-not-available");
-    })
-    
-    autoUpdater.on("error",(err)=>{
-        log.info("Error while updating. " + err);
-    })
-    
-    autoUpdater.on("download-progress",(progressTrack)=>{
-        log.info("\n\ndownload-progress")
-    log.info(progressTrack)
-    })
-      // --[[ End Dianostic information ]]--
-
 app.on('ready', () => {
-    autoUpdater.checkForUpdatesAndNotify()
     mainWindow = new BrowserWindow({
         rpc,
         icon,
@@ -112,9 +59,7 @@ app.on('ready', () => {
       })
 
     mainWindow.maximize()
-    mainWindow.loadURL('https://netflix.com/browse', {
-        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-    }); //Useragent spoofing to Chrome on Windows 10
+    mainWindow.loadURL('https://netflix.com/browse');
 
     party.ipcSetup(mainWindow)
     let navigationLoad = (loadType) => {

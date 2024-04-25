@@ -1,9 +1,4 @@
 /* global document, location, netflix */
-
-let {
-    data
-} = require("jquery")
-
 module.exports = function() {
     let [type, id] = location.pathname.split('/').slice(1, 3)
     let avatar = ''

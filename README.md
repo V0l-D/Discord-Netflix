@@ -4,6 +4,7 @@
 A updated version from the original Discord-Netflix from nirewen
 A Netflix wrapper that uses Discord RPC to show what you're watching using Rich Presence
 # Features
+- 1080p supported
 - Picture in picture support
 - Smooth Scroll
 - Max bitrate support

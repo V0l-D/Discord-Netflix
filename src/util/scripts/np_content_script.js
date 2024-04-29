@@ -2306,5 +2306,67 @@ let getElementByXPath = function (xpath) {
         subtree: true
     });
 
+//Update notifier
+const fs = require('fs');
+
+let userChoice = null;
+
+function getVersionNumberFromPackageJson() {
+    try {
+        const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+        return packageJson.version;
+    } catch (error) {
+        console.error('Error reading package.json:', error);
+        return null;
+    }
+}
+
+function checkNumberOnWebsite(url, numberToCheck) {
+    const versionNumber = getVersionNumberFromPackageJson();
+    if (!versionNumber) {
+        alert("Error: Couldn't retrieve version number from package.json");
+        return;
+    }
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(html => {
+            if (html.includes(numberToCheck)) {
+                console.log("Latest version: " + versionNumber)
+            } else {
+                setTimeout(() => {
+                    userChoice = confirm("There's an update available. Would you like to update to version: " + versionNumber);
+                }, 0);
+                setTimeout(() => {
+                    if (userChoice === null) {
+                        console.log("User did not make a choice.");
+                    } else if (userChoice === true) {
+                        console.log("User chose to update.");
+                        shell.openExternal(updateURL);
+                    } else {
+                        console.log("User chose not to update.");
+                        // Do nothing
+                    }
+                }, 100);
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            alert("There was an error checking the website.");
+        });
+}
+const { shell } = require('electron');
+const updateURL = "https://github.com/V0l-D/Discord-Netflix/releases";
+const websiteURL = "https://V0l-D.github.io";
+const numberToCheck = getVersionNumberFromPackageJson();
+if (numberToCheck) {
+    checkNumberOnWebsite(websiteURL, numberToCheck);
+}
+
 })();
 

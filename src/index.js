@@ -61,6 +61,7 @@ app.on('ready', () => {
     mainWindow.maximize()
     mainWindow.loadURL('https://netflix.com/browse');
 
+
     party.ipcSetup(mainWindow)
     let navigationLoad = (loadType) => {
         // This is a bit ugly but it works

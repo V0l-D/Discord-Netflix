@@ -33,9 +33,9 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "30.0.1+wvcus",
+    "electronVersion": "31.3.1+wvcus",
     "electronDownload": {
-      "version": "30.0.1+wvcus",
+      "version": "31.3.1+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
@@ -50,6 +50,6 @@
     "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^25.0.3"
   }
 }

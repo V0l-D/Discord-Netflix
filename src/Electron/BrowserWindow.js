@@ -5,7 +5,7 @@ const crypto = require('crypto')
 const path = require('path')
 const { MovieDb } = require('moviedb-promise');
 // Your TMDB API KEY HERE!
-const tmdb = new MovieDb('');
+const tmdb = new MovieDb('e9c40bdb82ee7cfac2f6fdc9bcc70c6d');
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor({
@@ -47,7 +47,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
 
     async fetchTMDbCoverArt(title) {
         try {
-          const searchResult = await tmdb.searchMovie({ query: title });
+          const searchResult = await tmdb.searchMulti({ query: title });
           if (searchResult.results && searchResult.results.length > 0) {
             const movie = searchResult.results[0];
             return `https://image.tmdb.org/t/p/w500${movie.poster_path}`;

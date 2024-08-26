@@ -33,15 +33,15 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "30.0.1+wvcus",
+    "electronVersion": "32.0.1+wvcus",
     "electronDownload": {
-      "version": "30.0.1+wvcus",
+      "version": "32.0.1+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
   "homepage": "https://github.com/V0l-D/Discord-Netflix#readme",
   "dependencies": {
-    "axios": "^1.6.8",
+    "axios": "^1.7.5",
     "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",
     "jquery": "^3.7.1",

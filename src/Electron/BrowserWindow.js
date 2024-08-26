@@ -5,7 +5,7 @@ const crypto = require('crypto')
 const path = require('path')
 const { MovieDb } = require('moviedb-promise');
 // Your TMDB API KEY HERE!
-const tmdb = new MovieDb('e9c40bdb82ee7cfac2f6fdc9bcc70c6d');
+const tmdb = new MovieDb('');
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor({

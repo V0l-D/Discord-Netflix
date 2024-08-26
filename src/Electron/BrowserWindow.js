@@ -50,7 +50,7 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
           const searchResult = await tmdb.searchMulti({ query: title });
           if (searchResult.results && searchResult.results.length > 0) {
             const movie = searchResult.results[0];
-            return `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            return `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
           }
           return null;
         } catch (error) {

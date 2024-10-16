@@ -18,7 +18,8 @@ module.exports = function() {
             name: 'Browsing',
             episode: 'In the Catalogs',
             avatar,
-            userName
+            userName,
+            noVideo: true,
         }
     }
 
@@ -32,7 +33,8 @@ module.exports = function() {
             name: 'Checking a title:',
             episode,
             avatar,
-            userName
+            userName,
+            noVideo: false,
         }
     }
 
@@ -64,6 +66,7 @@ module.exports = function() {
                 avatar,
                 interactive,
                 name,
+                noVideo: false,
                 button: [{
                     label: "Watch",
                     url: "https://netflix.com/watch/" + id

@@ -38,6 +38,7 @@ Contribution is welcome I could use all the help that's there on this project to
 - Add the profile icons that still need to be added
 - Auto updating system
 - Setup a beta program
+- Make IMDB support optional
 # Preview
 ![5enrEIDPt](https://user-images.githubusercontent.com/35117713/139714823-c591704e-740e-4e3d-bbd8-7830179deda1.png)
 ![5enrvFjMQ](https://user-images.githubusercontent.com/35117713/139714839-25079790-3ec4-4d00-85a5-42b07040703d.png)

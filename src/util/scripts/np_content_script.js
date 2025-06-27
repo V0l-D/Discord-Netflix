@@ -2316,8 +2316,7 @@ function getVersionNumberFromPackageJson() {
         const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
         return packageJson.version;
     } catch (error) {
-        console.error('Error reading package.json:', error);
-        return null;
+
     }
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "Netflix",
-  "version": "1.1.16",
-  "description": "A Netflix wrapper with Discord Rich Presence",
+  "version": "1.1.17",
+  "description": "Discord-Netflix",
   "main": "src/index.js",
   "scripts": {
     "start": "electron .",
@@ -33,22 +33,21 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "32.0.1+wvcus",
+    "electronVersion": "37.0.0+wvcus",
     "electronDownload": {
-      "version": "32.0.1+wvcus",
+      "version": "37.0.0+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },
   "homepage": "https://github.com/V0l-D/Discord-Netflix#readme",
   "dependencies": {
+    "@xhayper/discord-rpc": "^1.2.2",
     "axios": "^1.9.0",
-    "discord-rpc": "4.0.1",
     "electron-discord-register": "1.0.0",
     "jquery": "^3.7.1",
     "moment": "2.30.1",
     "setimmediate": "^1.0.5",
-    "socket.io-client": "^4.8.1",
-    "moviedb-promise": "^4.0.7"
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "electron-builder": "^25.0.3"

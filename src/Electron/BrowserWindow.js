@@ -3,9 +3,6 @@ const scripts = require('../util/scripts')
 const moment = require('moment')
 const crypto = require('crypto')
 const path = require('path')
-const { MovieDb } = require('moviedb-promise');
-// Your TMDB API KEY HERE!
-const tmdb = new MovieDb('');
 
 module.exports = class BrowserWindow extends Electron.BrowserWindow {
     constructor({
@@ -45,21 +42,6 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
         return this.eval(`(${scripts.infos})()`)
     }
 
-    async fetchTMDbCoverArt(title) {
-        try {
-          const searchResult = await tmdb.searchMulti({ query: title });
-          if (searchResult.results && searchResult.results.length > 0) {
-            const movie = searchResult.results[0];
-            return `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
-          }
-          return null;
-        } catch (error) {
-          console.error('Error fetching TMDb cover art:', error);
-          return null;
-        }
-      }
-            
-
     async checkNetflix() {
         let infos = await this.getInfos()
 
@@ -85,7 +67,6 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
                 // Evaluate the avatar id from the avatar (RegExp was acting funny inside the executeJavaScript for some reason, same code worked if copy and pasted into inspect element console and here)
             let avatarRegex = /AVATAR\|(.*)\|.*\|.*\|.*/gm
             let match = avatarRegex.exec(avatar)
-            let coverArt = await this.fetchTMDbCoverArt(name);
 
             if (match)
                 avatar = crypto
@@ -115,31 +96,16 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
                 paused
             }
 
-            if (infos.noVideo === true) {
-                var activity = {
-                    details: name,
-                    state: video,
-                    largeImageKey: 'netflix',
-                    largeImageText: 'Netflix',
-                    smallImageKey,
-                    smallImageText,
-                    instance: false,
-                    endTimestamp,
-                    buttons: button,
-                }
-            }
-            else {
-                var activity = {
-                    details: name,
-                    state: video,
-                    largeImageKey: coverArt || 'netflix',
-                    largeImageText: coverArt ? `${name} on Netflix` : 'Netflix',
-                    smallImageKey,
-                    smallImageText,
-                    instance: false,
-                    endTimestamp,
-                    buttons: button,
-                }
+            var activity = {
+                details: name,
+                state: video,
+                largeImageKey: 'netflix',
+                largeImageText: 'Netflix',
+                smallImageKey,
+                smallImageText,
+                instance: false,
+                endTimestamp,
+                buttons: button
             }
 
             // Currently disabled (not programmed)
@@ -156,7 +122,15 @@ module.exports = class BrowserWindow extends Electron.BrowserWindow {
                 }
             }
 
-            this.rpc.setActivity(activity)
+            this.rpc.setWatchingActivity({
+    name,
+    video,
+    avatar,
+    userName,
+    paused,
+    endTimestamp,
+    button
+});
         }
     }
     

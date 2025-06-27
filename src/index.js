@@ -37,12 +37,13 @@ const rpc = new Client({
 const party = new NetflixParty()
 let joinSession = null
 
-//small fix for linux peepz
-app.commandLine.appendSwitch('--no-sandbox')
+//small fix for linux peepz 
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch('--no-sandbox');
+}
 
 rpc.on('ready', () => {
     mainWindow.checkNetflix()
-    components.whenReady()
     setInterval(mainWindow.checkNetflix.bind(mainWindow), 15E3)
 })
 
@@ -54,8 +55,7 @@ app.on('ready', () => {
     })
 
     app.whenReady().then(() => {
-        components.whenReady();
-        createWindow();
+            app.emit('rpc')
       })
 
     mainWindow.maximize()
@@ -103,7 +103,6 @@ app.on('ready', () => {
         navigationLoad('inpage')
     })
 
-    app.emit('rpc')
 })
 
 app.on('window-all-closed', () => {

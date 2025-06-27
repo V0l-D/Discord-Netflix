@@ -18,8 +18,7 @@ module.exports = function() {
             name: 'Browsing',
             episode: 'In the Catalogs',
             avatar,
-            userName,
-            noVideo: true,
+            userName
         }
     }
 
@@ -33,11 +32,9 @@ module.exports = function() {
             name: 'Checking a title:',
             episode,
             avatar,
-            userName,
-            noVideo: false,
+            userName
         }
     }
-
 
     //New fix | Discord UI update
     if (document.location.pathname.includes("/watch")) {
@@ -66,7 +63,6 @@ module.exports = function() {
                 avatar,
                 interactive,
                 name,
-                noVideo: false,
                 button: [{
                     label: "Watch",
                     url: "https://netflix.com/watch/" + id

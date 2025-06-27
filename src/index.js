@@ -54,7 +54,7 @@ app.on('ready', () => {
     })
 
     app.whenReady().then(() => {
-        omponents.whenReady();
+        components.whenReady();
         createWindow();
       })
 

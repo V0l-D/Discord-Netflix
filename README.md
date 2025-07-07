@@ -40,8 +40,7 @@ Contribution is welcome I could use all the help that's there on this project to
 - Setup a beta program
 - Make IMDB support optional
 # Preview
-![5enrEIDPt](https://user-images.githubusercontent.com/35117713/139714823-c591704e-740e-4e3d-bbd8-7830179deda1.png)
-![5enrvFjMQ](https://user-images.githubusercontent.com/35117713/139714839-25079790-3ec4-4d00-85a5-42b07040703d.png)
+![image](https://github.com/user-attachments/assets/e78cb9c5-4850-48ea-b3a3-17bebca08bdd)
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->

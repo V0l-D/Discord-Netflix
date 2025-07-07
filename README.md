@@ -8,7 +8,6 @@ A Netflix wrapper that uses Discord RPC to show what you're watching using Rich 
 - Picture in picture support
 - Smooth Scroll
 - Max bitrate support
-- [Netflix party](https://github.com/Terroriser1/Discord-Netflix/wiki/Netflix-Party)
 - Discord RPC
 - [Avatars](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars)
 - [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy)
@@ -31,14 +30,18 @@ Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki)
 # Contribution
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.
 # Roadmap
-- Make Netflix Party work again
-- Make independent plugin for chrome and firefox
-- Make option for disabling certain rich presence elements
-- Make github repo for Netflix-Party
-- Add the profile icons that still need to be added
-- Auto updating system
-- Setup a beta program
-- Make IMDB support optional
+- Update repository to reflect all changes and show up to date information and modernization to the page.
+- Fix rpc buttons
+- Fix elapsed time on RPC :white_check_mark: 
+- Create a website
+- Make improved auto update system
+- Clean up code and remove clutter :white_check_mark: 
+- Test on mac os and make a executable for mac os on latest version of Discord-Netflix
+- Modernize Discord server
+- Make Discord bot
+- Make option to personalize rich presence
+- Add 4k support
+- Fix profile icons on rpc :white_check_mark: 
 # Preview
 ![image](https://github.com/user-attachments/assets/e78cb9c5-4850-48ea-b3a3-17bebca08bdd)
 ## Contributors

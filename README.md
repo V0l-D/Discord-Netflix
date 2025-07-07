@@ -43,7 +43,9 @@ Contribution is welcome I could use all the help that's there on this project to
 - Add 4k support
 - Fix profile icons on rpc :white_check_mark: 
 # Preview
-![image](https://github.com/user-attachments/assets/e78cb9c5-4850-48ea-b3a3-17bebca08bdd)
+![image](https://github.com/user-attachments/assets/f26c88b4-d5a0-479b-b515-62b135a77f20)
+![image](https://github.com/user-attachments/assets/d6f6cf96-70b7-4281-a2d9-5a14631b55ca)
+![image](https://github.com/user-attachments/assets/14747a3b-5409-4c7e-9009-2c499ed1080b)
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->

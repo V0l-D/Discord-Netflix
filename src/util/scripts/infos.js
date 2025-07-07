@@ -1,75 +1,110 @@
-/* global document, location, netflix */
-module.exports = function() {
-    let [type, id] = location.pathname.split('/').slice(1, 3)
-    let avatar = ''
-    let userName
+module.exports = function () {
+  const pathname = document.location.pathname;
+  let avatar = '';
+  let userName = '';
 
-    if (netflix) {
-        let {
-            userGuid,
-            name
-        } = netflix.reactContext.models.userInfo.data
-        avatar = netflix.falcorCache.profiles[userGuid].summary.value.avatarName.split('R|').pop().split('|')[0] 
-        userName = name
+  // Try to get Netflix user profile avatar and name
+  if (typeof netflix !== 'undefined') {
+    try {
+      const { userGuid, name } = netflix.reactContext.models.userInfo.data;
+      avatar = netflix.falcorCache.profiles[userGuid].summary.value.avatarName.split('R|').pop().split('|')[0];
+      userName = name;
+    } catch {
+      console.warn('[Netflix RPC] User info not found');
     }
+  }
 
-    if (document.location.pathname.includes("/browse")) {
-        return {
-            name: 'Browsing',
-            episode: 'In the Catalogs',
-            avatar,
-            userName
-        }
+  // === Browsing ===
+  if (pathname.includes('/browse')) {
+    return {
+      name: 'Browsing',
+      title: 'Browsing',
+      state: 'In the Catalogs',
+      avatar,
+      userName,
+    };
+  }
+
+  // === Title Page ===
+  if (pathname.includes('/title')) {
+    const title =
+      document.querySelector('h1.title-title')?.textContent?.trim() ||
+      document.querySelector('.title-info h3')?.textContent?.trim() ||
+      document.title.replace(' - Netflix', '').trim();
+
+    const subtitle = document.querySelector('.episodeTitle')?.textContent?.trim() || '';
+
+    return {
+      name: 'Checking a title',
+      title,
+      state: subtitle,
+      avatar,
+      userName,
+      buttons: [],
+    };
+  }
+
+  // === Watching Page ===
+  if (pathname.includes('/watch')) {
+    try {
+      const videoEl = document.querySelector(".VideoContainer video") ||
+                      document.querySelector(".watch-video--player-view video");
+      if (!videoEl) return;
+
+      const { duration, currentTime, paused } = videoEl;
+
+      const titleContainer = document.querySelector('[data-uia="video-title"]');
+      if (!titleContainer) return;
+
+      const spans = Array.from(titleContainer.querySelectorAll('span'));
+      const h4s = Array.from(titleContainer.querySelectorAll('h4'));
+
+      let episodeNumber = '';
+      let episodeTitle = '';
+      let seriesTitle = '';
+
+      // Parse episode and title info based on Netflix's DOM layout
+      if (spans.length >= 3) {
+        // Typical episode: S1:E1, Title, Show Name
+        seriesTitle = h4s[0]?.textContent?.trim() || '';
+        episodeNumber = spans[0]?.textContent?.trim() || '';
+        episodeTitle = spans[1]?.textContent?.trim() || '';
+      } else if (spans.length === 2) {
+        // Fallback for episodes with fewer spans
+        episodeNumber = spans[0]?.textContent?.trim() || '';
+        episodeTitle = spans[1]?.textContent?.trim() || '';
+        seriesTitle = h4s[0]?.textContent?.trim() || '';
+      } else {
+        // Movie fallback
+        const movieName = titleContainer.textContent?.trim() || '';
+        seriesTitle = 'Netflix';
+        episodeTitle = movieName;
+      }
+
+      const fullState = (episodeNumber && episodeTitle)
+        ? `${episodeNumber}: ${episodeTitle}`
+        : episodeTitle || episodeNumber || '';
+
+      const idMatch = pathname.match(/\/watch\/(\d+)/);
+      const id = idMatch ? idMatch[1] : '';
+
+      return {
+        title: seriesTitle || document.title.replace(' - Netflix', '').trim(),
+        state: fullState,
+        duration,
+        currentTime,
+        paused,
+        avatar,
+        userName,
+        buttons: id ? [{
+          label: 'Watch on Netflix',
+          url: `https://www.netflix.com/watch/${id}`
+        }] : [],
+      };
+    } catch (e) {
+      console.error('[Netflix RPC] Failed to parse watching data:', e);
     }
+  }
 
-    if (document.location.pathname.includes("/title")) {
-        let jawBone = document.querySelector('.jawBone .title')
-        let episode = jawBone.querySelector('.logo') ?
-            jawBone.querySelector('.logo').getAttribute('alt') :
-            jawBone.querySelector('.text').innerHTML
-
-        return {
-            name: 'Checking a title:',
-            episode,
-            avatar,
-            userName
-        }
-    }
-
-    //New fix | Discord UI update
-    if (document.location.pathname.includes("/watch")) {
-        try {
-
-            let name = document.querySelector('.ellipsize-text')
-                //Let's get the video ID for the button
-            let id = document.querySelector('[data-videoid]').dataset.videoid
-            let {
-                duration,
-                currentTime,
-                paused
-            } = document.querySelector(".VideoContainer video") ?? document.querySelector(".watch-video--player-view video");
-            let title = (document.querySelector("[data-uia$='video-title'] span:nth-child(3)") ?? " ").textContent
-            let episode = (document.querySelector("[data-uia$='video-title'] span") ?? " ").textContent
-            let interactive = false
-            // TODO: Better interactive video check. Severe problems are caused in the solutions currently found
-            name = (document.querySelector("[data-uia$='video-title']")).firstChild.textContent
-            return {
-                duration,
-                currentTime,
-                paused,
-                title,
-                episode,
-                userName,
-                avatar,
-                interactive,
-                name,
-                button: [{
-                    label: "Watch",
-                    url: "https://netflix.com/watch/" + id
-                }]
-            } //duration, currentTime, paused}]}
-        } catch (error) {
-            //Ignore error due new Netflix UI
-        }
-    }
-}
+  return null;
+};

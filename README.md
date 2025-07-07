@@ -31,9 +31,9 @@ Find out more [here](https://github.com/Terroriser1/Discord-Netflix/wiki)
 Contribution is welcome I could use all the help that's there on this project to maintain it and make it work on other operating systems. If you have improvements or ideas contact me on Discord: `Void#1001` if you have a fix, suggestion etc. you may also fork this project and pull request.
 # Roadmap
 - Update repository to reflect all changes and show up to date information and modernization to the page.
-- Fix rpc buttons
+- Fix rpc buttons :white_check_mark: 
 - Fix elapsed time on RPC :white_check_mark: 
-- Create a website
+- Create a website :white_check_mark: 
 - Make improved auto update system
 - Clean up code and remove clutter :white_check_mark: 
 - Test on mac os and make a executable for mac os on latest version of Discord-Netflix

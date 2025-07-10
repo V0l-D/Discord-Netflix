@@ -75,10 +75,10 @@ Make sure you have the following installed:
 ## 🖼️ Preview
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f26c88b4-d5a0-479b-b515-62b135a77f20" width="500px" alt="Rich Presence Preview 1"/>
-  <br/><br/>
-  <img src="https://github.com/user-attachments/assets/14747a3b-5409-4c7e-9009-2c499ed1080b" width="500px" alt="Rich Presence Preview 2"/>
+  <img src="https://github.com/user-attachments/assets/f26c88b4-d5a0-479b-b515-62b135a77f20" width="300px" alt="Rich Presence Preview 1"/>
+  <img src="https://github.com/user-attachments/assets/14747a3b-5409-4c7e-9009-2c499ed1080b" width="300px" alt="Rich Presence Preview 2"/>
 </div>
+
 
 ---
 

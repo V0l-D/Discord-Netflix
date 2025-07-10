@@ -50,7 +50,7 @@ Make sure you have the following installed:
 
 - ✅ Windows  
 - ✅ Linux  
-- ⚠️ macOS (experimental, some features may not work)
+- ✅ macOS 
 
 > 📚 See full instructions in the [Wiki](https://github.com/Terroriser1/Discord-Netflix/wiki)
 

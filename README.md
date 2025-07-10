@@ -62,11 +62,11 @@ Make sure you have the following installed:
 - ✅ Fix elapsed time display  
 - ✅ Clean up legacy code  
 - ✅ Create official website  
-- ✅ Fix profile icons in RPC  
+- ✅ Fix profile icons in RPC
+- ✅ Build macOS executable  
 - 🟡 Add 4K support  
 - 🟡 Improve auto-updater  
 - 🟡 Personalize Rich Presence  
-- 🟡 Build macOS executable  
 - 🟡 Launch Discord bot  
 - 🟡 Modernize Discord community
 

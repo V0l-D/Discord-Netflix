@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/V0l-D/Discord-Netflix#readme",
   "dependencies": {
-    "@xhayper/discord-rpc": "^1.2.2",
+    "@xhayper/discord-rpc": "^1.3.0",
     "axios": "^1.11.0",
     "electron-discord-register": "1.0.0",
     "jquery": "^3.7.1",

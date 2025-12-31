@@ -5,10 +5,9 @@
 _An actively maintained fork of [nirewen's](https://github.com/nirewen) original project._
 
 [![Join our Discord](https://img.shields.io/discord/868546947953356860?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/kbf8EjpxbU)
-[![Known Vulnerabilities](https://snyk.io/test/github/Terroriser1/Discord-Netflix/badge.svg)](https://snyk.io/test/github/Terroriser1/Discord-Netflix)
-[![Downloads](https://img.shields.io/github/downloads/Terroriser1/Discord-Netflix/total?color=green&logo=github)](https://github.com/Terroriser1/Discord-Netflix/releases)
-[![License](https://img.shields.io/github/license/Terroriser1/Discord-Netflix?color=blue)](LICENSE)
-
+[![Known Vulnerabilities](https://snyk.io/test/github/V0l-D/Discord-Netflix/badge.svg)](https://snyk.io/test/github/Terroriser1/Discord-Netflix)
+[![Downloads](https://img.shields.io/github/downloads/V0l-D/Discord-Netflix/total?color=green&logo=github)](https://github.com/Terroriser1/Discord-Netflix/releases)
+[![License](https://img.shields.io/github/license/V0l-D/Discord-Netflix?color=blue)](LICENSE)
 </div>
 
 ---

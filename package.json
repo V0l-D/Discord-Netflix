@@ -1,6 +1,6 @@
 {
-  "name": "Netflix",
-  "version": "1.2.18",
+  "name": "Discord-Netflix",
+  "version": "1.2.19",
   "description": "Discord-Netflix",
   "main": "src/index.js",
   "scripts": {
@@ -33,9 +33,9 @@
       "icon": "./assets/iconmac.png"
     },
     "artifactName": "${productName}_Setup_${version}.${ext}",
-    "electronVersion": "37.1.0+wvcus",
+    "electronVersion": "37.10.3+wvcus",
     "electronDownload": {
-      "version": "37.1.0+wvcus",
+      "version": "37.10.3+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     }
   },

@@ -39,7 +39,7 @@ app.on('ready', () => {
     mainWindow.loadURL('https://netflix.com/browse');
 })
 
-components.whenReady();
+app.whenReady();
 
 app.on('window-all-closed', () => {
     app.quit()

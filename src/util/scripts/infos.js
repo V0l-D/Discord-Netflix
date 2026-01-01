@@ -85,8 +85,10 @@ module.exports = function () {
         ? `${episodeNumber}: ${episodeTitle}`
         : episodeTitle || episodeNumber || '';
 
-      const idMatch = pathname.match(/\/watch\/(\d+)/);
-      const id = idMatch ? idMatch[1] : '';
+// Get video ID from DOM
+const playerDiv = document.querySelector('[data-uia="player"]');
+const id = playerDiv?.dataset?.videoid || '';
+
 
       return {
         title: seriesTitle || document.title.replace(' - Netflix', '').trim(),
@@ -105,6 +107,6 @@ module.exports = function () {
       console.error('[Netflix RPC] Failed to parse watching data:', e);
     }
   }
-
+console.log(id)
   return null;
 };

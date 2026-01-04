@@ -16,8 +16,8 @@ _An actively maintained fork of [nirewen's](https://github.com/nirewen) original
 
 - 🖥️ 1080p streaming support  
 - 📌 Picture-in-picture mode  
-- 🧭 Smooth UI scrolling  
-- 🎵 Max bitrate playback  
+- 🎵 Max bitrate playback
+- 📹 Ctrl + Shift + Alt + D (codec menu)
 - 🧠 Smart Discord Rich Presence  
 - 👤 Custom user avatars ([Wiki](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars))  
 - 🔒 Transparent [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy) practices  

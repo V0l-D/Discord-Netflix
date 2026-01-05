@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1536" height="200" alt="image" src="https://github.com/user-attachments/assets/422ef5ba-61c1-435c-8416-2f9239d9abc2"/>
+<img width="1536" height="300" alt="image" src="https://github.com/user-attachments/assets/422ef5ba-61c1-435c-8416-2f9239d9abc2"/>
   
 _An actively maintained fork of [nirewen's](https://github.com/nirewen) original project._
 

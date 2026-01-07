@@ -1,6 +1,7 @@
 <div align="center">
-<img width="1536" height="1024" alt="ChatGPT Image Jan 7, 2026, 07_29_05 PM" src="https://github.com/user-attachments/assets/e1517778-8e3b-42d4-a3dd-541aa468c167" />
-  
+
+# 🎬 Discord-Netflix  
+**Rich Presence for Netflix in Discord**  
 _An actively maintained fork of [nirewen's](https://github.com/nirewen) original project._
 
 [![Join our Discord](https://img.shields.io/discord/868546947953356860?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/kbf8EjpxbU)
@@ -17,13 +18,10 @@ _An actively maintained fork of [nirewen's](https://github.com/nirewen) original
 - 📌 Picture-in-picture mode  
 - 🎵 Max bitrate playback
 - 📹 Ctrl + Shift + Alt + D (codec menu)
-- 🧠 Smart Discord Rich Presence
-- 🏠 Bypass Household Restrictions
-- 📋 Auto Update Notifier
-- 🖱️ Smoothscroll
-- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover)) (Integration is W.I.P)
+- 🧠 Smart Discord Rich Presence  
 - 👤 Custom user avatars ([Wiki](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars))  
 - 🔒 Transparent [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy) practices  
+- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover))  
 - 🗺️ [Development Roadmap](https://github.com/Terroriser1/Discord-Netflix/wiki/Roadmap)
 
 ---
@@ -65,11 +63,11 @@ Make sure you have the following installed:
 - ✅ Create official website  
 - ✅ Fix profile icons in RPC
 - ✅ Build macOS executable  
-- ✅ Improve auto-updater  
-- ✅ Modernize Discord community
+- 🟡 Add 4K support  
+- 🟡 Improve auto-updater  
 - 🟡 Personalize Rich Presence  
 - 🟡 Launch Discord bot  
-- 🟡 IMDB cover support Integration
+- 🟡 Modernize Discord community
 
 ---
 
@@ -88,10 +86,29 @@ Make sure you have the following installed:
 Thanks to all these awesome contributors:
 
 <!-- ALL-CONTRIBUTORS-LIST:START -->
-| [<img src="https://avatars.githubusercontent.com/u/35117713?v=4" width="80px;"/><br /><sub><b>Discord-Netflix</b></sub>](https://github.com/Discord-Netflix) | [<img src="https://avatars1.githubusercontent.com/u/8761479?v=4" width="80px;"/><br /><sub><b>Nirewen</b></sub>](https://github.com/nirewen) | [<img src="https://avatars0.githubusercontent.com/u/22089269?v=4" width="80px;"/><br /><sub><b>Wist9063</b></sub>](https://hexaplexsoftware.ga/) | [<img src="https://avatars1.githubusercontent.com/u/27071605?v=4" width="80px;"/><br /><sub><b>Keyygan</b></sub>](https://keyygan.me) |
-| :---: | :---: | :---: | :---: |
-| [<img src="https://avatars2.githubusercontent.com/u/13137236?v=4" width="80px;"/><br /><sub><b>Dominic F-J</b></sub>](https://github.com/dmfj) | [<img src="https://avatars0.githubusercontent.com/u/3434404?v=4" width="80px;"/><br /><sub><b>NovusTheory</b></sub>](https://modulobot.xyz) | [<img src="https://user-images.githubusercontent.com/35117713/127240008-c7bd7448-87e6-426d-a6f5-7bd64a0b7033.jpg" width="80px"/><br /><sub><b>Maik</b></sub>](#) | [<img src="https://avatars.githubusercontent.com/u/79590499?v=4" width="80px"/><br /><sub><b>Monochromish</b></sub>](https://github.com/Monochromish) |
-| [<img src="https://avatars.githubusercontent.com/u/104647854?v=4" width="80px;"/><br /><sub><b>0xGingi</b></sub>](https://github.com/0xGingi) |
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="16.66%"><a href="https://0xgingi.xyz/"><img src="https://avatars.githubusercontent.com/u/104647854?v=4?s=100" width="100px;" alt="0xGingi"/><br /><sub><b>0xGingi</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=0xGingi" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://discord-netflix.github.io/"><img src="https://avatars.githubusercontent.com/u/35117713?v=4?s=100" width="100px;" alt="Discord-Netflix"/><br /><sub><b>Discord-Netflix</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=Discord-Netflix" title="Code">💻</a> <a href="#ideas-Discord-Netflix" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Discord-Netflix" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://dmfj.io/"><img src="https://avatars.githubusercontent.com/u/13137236?v=4?s=100" width="100px;" alt="Dominic Fitch-Jones"/><br /><sub><b>Dominic Fitch-Jones</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=dmfj" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://nirewen.dev/"><img src="https://avatars.githubusercontent.com/u/8761479?v=4?s=100" width="100px;" alt="Eduardo Londero"/><br /><sub><b>Eduardo Londero</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=nirewen" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://himanshu.sh/"><img src="https://avatars.githubusercontent.com/u/79590499?v=4?s=100" width="100px;" alt="Himanshu Adwani"/><br /><sub><b>Himanshu Adwani</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=Monochromish" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://keyygan.me/"><img src="https://avatars.githubusercontent.com/u/27071605?v=4?s=100" width="100px;" alt="Keegan"/><br /><sub><b>Keegan</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=Keyygan" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="16.66%"><a href="#"><img src="https://user-images.githubusercontent.com/35117713/127240008-c7bd7448-87e6-426d-a6f5-7bd64a0b7033.jpg?s=100" width="100px;" alt="Maik"/><br /><sub><b>Maik</b></sub></a><br /><a href="#design-maik" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://modulobot.xyz/"><img src="https://avatars.githubusercontent.com/u/3434404?v=4?s=100" width="100px;" alt="NovusTheory"/><br /><sub><b>NovusTheory</b></sub></a><br /><a href="#ideas-NovusTheory" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://joshlol.xyz/"><img src="https://avatars.githubusercontent.com/u/22089269?v=4?s=100" width="100px;" alt="josh"/><br /><sub><b>josh</b></sub></a><br /><a href="https://github.com/Discord-Netflix/Discord-Netflix/commits?author=Wist9063" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---

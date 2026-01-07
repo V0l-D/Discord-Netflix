@@ -2,6 +2,8 @@ const { BrowserWindow: ElectronBrowserWindow } = require('electron');
 const scripts = require('../util/scripts');
 const path = require('path');
 const crypto = require('crypto');
+const fetch = require('node-fetch').default;
+const { dialog, shell, app } = require('electron');
 
 function normalizeTime(time) {
   if (!time || isNaN(time)) return 0;
@@ -10,6 +12,16 @@ function normalizeTime(time) {
 
 function md5(string) {
   return crypto.createHash('md5').update(string).digest('hex');
+}
+
+function normalizeVersion(v) {
+  return v.replace(/^v/, '');
+}
+
+function isNewerVersion(latest, current) {
+  const l = latest.split('.').map(Number);
+  const c = current.split('.').map(Number);
+  return l.some((n, i) => n > (c[i] || 0));
 }
 
 module.exports = class BrowserWindow extends ElectronBrowserWindow {
@@ -34,6 +46,52 @@ module.exports = class BrowserWindow extends ElectronBrowserWindow {
 
     this.rpc = rpc;
     this.browsingStart = null;
+    this._checkedForUpdates = false;
+
+    // Run update check AFTER first load
+    this.webContents.once('did-finish-load', () => {
+      setTimeout(() => this.checkForUpdates(), 4000);
+    });
+  }
+
+    async checkForUpdates() {
+    if (this._checkedForUpdates) return;
+    this._checkedForUpdates = true;
+
+    try {
+      const res = await fetch(
+        'https://api.github.com/repos/Discord-Netflix/Discord-Netflix/releases/latest',
+        { headers: { 'User-Agent': 'Discord-Netflix' } }
+      );
+
+      if (!res.ok) return;
+
+      const release = await res.json();
+      const latest = normalizeVersion(release.tag_name);
+      const current = app.getVersion();
+
+      if (!isNewerVersion(latest, current)) return;
+
+      const result = await dialog.showMessageBox(this, {
+        type: 'info',
+        title: 'Update available',
+        message: 'A new version of Discord-Netflix is available.',
+        detail:
+          `Current: v${current}\n` +
+          `New: v${latest}\n\n` +
+          (release.body || ''),
+        buttons: ['Update', 'Later'],
+        defaultId: 0,
+        cancelId: 1,
+      });
+
+      if (result.response === 0) {
+        shell.openExternal(release.html_url);
+        app.quit();
+      }
+    } catch (err) {
+      console.error('[update] failed:', err);
+    }
   }
 
   // Wrapper for webContents.executeJavaScript

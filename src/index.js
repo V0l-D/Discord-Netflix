@@ -1,16 +1,12 @@
 const { app, BrowserWindow, Notification } = require('./Electron')
 const { Client } = require('./RPC')
 const path = require('path')
-const { components, nativeImage } = require('electron')
+const { components } = require('electron')
 
-app.setAppUserModelId('Discord-Netflix')
+app.setAppUserModelId('DiscordNetflix')
 
-const icons = {
-    win32: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
-    linux: nativeImage.createFromPath(path.join(__dirname, `../assets/icon.png`)),
-    darwin: nativeImage.createFromPath(path.join(__dirname, `../assets/iconmac.png`))
-}
-const icon = process.platform === 'win32' ? icons.win32 : process.platform === 'darwin' ? icons.darwin : icons.linux
+const icon = path.join(__dirname, '../assets/icon.png')
+
 const clientId = '868487355114323968'
 
 let mainWindow
@@ -35,6 +31,7 @@ app.on('ready', () => {
     app.whenReady().then(() => {
             app.emit('rpc')
       })
+
     mainWindow.maximize()
     mainWindow.loadURL('https://netflix.com/browse');
 })

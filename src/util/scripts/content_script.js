@@ -1,4 +1,6 @@
-// Max Bitrate & 1080p + EAC3 Audio
+/* =========================================================
+   MAX BITRATE & 1080p + EAC3 AUDIO
+   ========================================================= */
 (function () {
     const getElementByXPath = xpath =>
         document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
@@ -27,29 +29,30 @@
     };
 
     const run = () => setMaxBitrate() || setTimeout(run, 100);
-    const WATCH_REGEXP = /netflix.com\/watch\/.*/;
+    const WATCH_REGEXP = /netflix\.com\/watch\/.*/;
     let oldLocation;
 
     setInterval(() => {
-        const newLocation = window.location.toString();
-        if (newLocation !== oldLocation) {
-            oldLocation = newLocation;
-            WATCH_REGEXP.test(newLocation) && run();
+        const loc = location.toString();
+        if (loc !== oldLocation) {
+            oldLocation = loc;
+            WATCH_REGEXP.test(loc) && run();
         }
     }, 500);
 
-    console.log("MAXBITRATE ENABLED | DISCORD-NETFLIX");
+    console.log("MAX BITRATE ENABLED | DISCORD-NETFLIX");
 })();
 
-// Picture in Picture for Netflix
+/* =========================================================
+   PICTURE IN PICTURE (NETFLIX-EXACT)
+   ========================================================= */
 (function () {
     const ICON_SVG = `
-        <svg viewBox="0 0 24 24" width="24" height="24"
-             xmlns="http://www.w3.org/2000/svg" fill="none" role="img">
-            <path fill="currentColor" fill-rule="evenodd"
-                  d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6l-4 4v-4H4a2 2 0 0 1-2-2zm2 0v10h6v2.17L13.17 14H20V4z">
-            </path>
-        </svg>
+ <svg viewBox="0 0 24 24" width="24" height="24"
+     xmlns="http://www.w3.org/2000/svg" fill="none" role="img">
+    <path fill="currentColor" fill-rule="evenodd"
+          d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 0v12h16V4zm9 7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
+</svg>
     `;
 
     const getVideo = () => document.querySelector("video");
@@ -57,19 +60,18 @@
     const togglePiP = async () => {
         const video = getVideo();
         if (!video) return;
-
         try {
-            if (document.pictureInPictureElement) {
-                await document.exitPictureInPicture();
-            } else {
-                await video.requestPictureInPicture();
-            }
-        } catch (e) {
-            // silently ignore errors
-        }
+            document.pictureInPictureElement
+                ? await document.exitPictureInPicture()
+                : await video.requestPictureInPicture();
+        } catch {}
     };
 
-    const createButton = () => {
+    const createPiPUnit = (fullscreenWrapper) => {
+        // --- button wrapper (medium)
+        const wrapper = fullscreenWrapper.cloneNode(false);
+        wrapper.innerHTML = "";
+
         const btn = document.createElement("button");
         btn.className = "pip-button default-ltr-iqcdef-cache-1enhvti";
         btn.setAttribute("aria-label", "Picture in Picture");
@@ -80,31 +82,46 @@
             </div>
         `;
 
+        // Netflix-like hover/focus behavior
+        const activate = () => btn.classList.add("active");
+        const deactivate = () => btn.classList.remove("active");
+
+        btn.addEventListener("mouseenter", activate);
+        btn.addEventListener("mouseleave", deactivate);
+        btn.addEventListener("focus", activate);
+        btn.addEventListener("blur", deactivate);
+
         btn.addEventListener("click", togglePiP);
-        return btn;
+        wrapper.appendChild(btn);
+
+        // --- spacing div (THIS FIXES ALIGNMENT)
+        const spacer = document.createElement("div");
+        spacer.className = "default-ltr-iqcdef-cache-1npqywr";
+        spacer.style.minWidth = "3rem";
+        spacer.style.width = "3rem";
+
+        return { wrapper, spacer };
     };
 
     const inject = () => {
-        // Find the fullscreen button
-        const fullscreenBtn = document.querySelector('button[data-uia="control-fullscreen-enter"]');
+        const fullscreenBtn = document.querySelector(
+            'button[data-uia="control-fullscreen-enter"]'
+        );
         if (!fullscreenBtn) return;
 
-        // The container we actually want is the direct parent of the fullscreen button:
-        // <div class="medium default-ltr-iqcdef-cache-1dcjcj4">[buttons here]</div>
-        const container = fullscreenBtn.parentElement;
-        if (!container) return;
+        const fullscreenWrapper = fullscreenBtn.closest(".medium");
+        if (!fullscreenWrapper) return;
 
-        // Avoid duplicating the PiP button
-        if (container.querySelector(".pip-button")) return;
+        const container = fullscreenWrapper.parentElement;
+        if (!container || container.querySelector(".pip-button")) return;
 
-        const pipBtn = createButton();
+        const { wrapper, spacer } = createPiPUnit(fullscreenWrapper);
 
-        // Insert PiP directly BEFORE fullscreen inside the same container
-        container.insertBefore(pipBtn, fullscreenBtn);
+        container.insertBefore(spacer, fullscreenWrapper);
+        container.insertBefore(wrapper, spacer);
     };
 
     const injectStyle = () => {
-        if (!document.head) return requestAnimationFrame(injectStyle);
         if (document.getElementById("pip-css")) return;
 
         const style = document.createElement("style");
@@ -112,38 +129,31 @@
         style.textContent = `
             .pip-button {
                 cursor: pointer;
-            }
-            .pip-button:hover svg {
-                opacity: 0.8;
-            }
-            .pip-button:active svg {
-                transform: scale(0.95);
+                transition: transform 0.2s ease;
             }
         `;
-        document.head.appendChild(style);
+
+        const target = document.head || document.body;
+        if (!target) return requestAnimationFrame(injectStyle);
+        target.appendChild(style);
     };
 
-    injectStyle();
+    const waitForBody = () => {
+        if (!document.body) return requestAnimationFrame(waitForBody);
 
-    const waitForBodyAndObserve = () => {
-        if (!document.body) {
-            requestAnimationFrame(waitForBodyAndObserve);
-            return;
-        }
-
-        // Observe changes so we re-inject when Netflix rebuilds the controls
-        const observer = new MutationObserver(() => inject());
+        injectStyle();
+        const observer = new MutationObserver(inject);
         observer.observe(document.body, { childList: true, subtree: true });
 
-        // Initial attempt
         inject();
     };
 
-    waitForBodyAndObserve();
+    waitForBody();
 })();
 
-
-// SmoothScroll (Netflix / Electron – FIXED)
+/* =========================================================
+   SMOOTH SCROLL (NETFLIX / ELECTRON)
+   ========================================================= */
 (function () {
     const STEP = 120;
     const DURATION = 400;
@@ -172,23 +182,15 @@
 
     const animate = () => {
         const now = performance.now();
-
         queue = queue.filter(item => {
             const t = Math.min(1, (now - item.start) / DURATION);
             const p = pulse(t);
             const dy = (item.y * p - item.ly) | 0;
-
             item.ly += dy;
             item.elem.scrollTop += dy;
-
             return t < 1;
         });
-
-        if (queue.length) {
-            requestAnimationFrame(animate);
-        } else {
-            running = false;
-        }
+        running ? requestAnimationFrame(animate) : (running = false);
     };
 
     const onWheel = e => {
@@ -202,22 +204,118 @@
         lastDir = dir;
 
         const elem = findScrollable(e.target);
-
-        queue.push({
-            elem,
-            y: delta * STEP / 120,
-            ly: 0,
-            start: performance.now()
-        });
+        queue.push({ elem, y: delta * STEP / 120, ly: 0, start: performance.now() });
 
         if (!running) {
             running = true;
             requestAnimationFrame(animate);
         }
-
         e.preventDefault();
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });
     console.log("SMOOTH SCROLL ENABLED | DISCORD-NETFLIX");
+})();
+
+/* =========================================================
+   BYPASS HOUSEHOLD RESTRICTIONS (NETFLIX / ELECTRON)
+   ========================================================= */
+(function () {
+    'use strict';
+
+    let hasForced = false;
+    let observer = null;
+
+    function tryForcePlay() {
+        if (hasForced) return;
+
+        try {
+            const video = document.querySelector('video');
+            if (!video) return;
+
+            const netflixPlayer = window.netflix?.appContext?.state?.playerApp?.getAPI?.().videoPlayer;
+            const sessionId = netflixPlayer?.getAllPlayerSessionIds?.()[0];
+            const player = netflixPlayer?.getVideoPlayerBySessionId?.(sessionId);
+
+            if (player && video.paused) {
+                player.play();
+                hasForced = true;
+
+                // once successful, disconnect everything
+                observer?.disconnect();
+                observer = null;
+
+                console.log('[TM] Household block bypassed.');
+            }
+        } catch (_) {
+            // intentionally silent (stealth)
+        }
+    }
+
+    function cleanUI() {
+        const blockers = document.querySelectorAll(
+            '.nf-modal, .screen-overlay, [data-uia*="interstitial"], .active-overlay, .error-page-container'
+        );
+        blockers.forEach(el => el.remove());
+
+        if (document.body) {
+            document.body.style.pointerEvents = 'auto';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function setupObserver() {
+        if (!document.body) {
+            requestAnimationFrame(setupObserver);
+            return;
+        }
+
+        observer = new MutationObserver(() => {
+            const modal = document.querySelector(
+                '.nf-modal, [data-uia*="interstitial"]'
+            );
+
+            if (modal && !hasForced) {
+                cleanUI();
+
+                // delay slightly so Netflix finishes its own handling
+                setTimeout(tryForcePlay, 500);
+            }
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    setupObserver();
+
+    /* INPUT CONTROLS — UNCHANGED */
+    window.addEventListener('keydown', function (e) {
+        const video = document.querySelector('video');
+        if (!video) return;
+
+        switch (e.code) {
+            case 'Space':
+                e.preventDefault();
+                video.paused ? video.play() : video.pause();
+                break;
+            case 'KeyM':
+                video.muted = !video.muted;
+                break;
+            case 'ArrowRight':
+                video.currentTime += 10;
+                break;
+            case 'ArrowLeft':
+                video.currentTime -= 10;
+                break;
+        }
+    });
+
+    window.addEventListener('click', function (e) {
+        const video = document.querySelector('video');
+        if (!video) return;
+        if (e.target.tagName.toLowerCase() === 'video') {
+            video.paused ? video.play() : video.pause();
+        }
+    });
+    console.log("BYPASS HOUSEHOLD RESTRICTIONS ENABLED | DISCORD-NETFLIX");
 })();

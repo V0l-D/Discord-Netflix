@@ -62,11 +62,10 @@ Make sure you have the following installed:
 - ✅ Create official website  
 - ✅ Fix profile icons in RPC
 - ✅ Build macOS executable  
-- 🟡 Add 4K support  
-- 🟡 Improve auto-updater  
+- ✅ Improve auto-updater  
 - 🟡 Personalize Rich Presence  
 - 🟡 Launch Discord bot  
-- 🟡 Modernize Discord community
+- ✅ Modernize Discord community
 
 ---
 

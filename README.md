@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1536" height="800" alt="image" src="https://github.com/user-attachments/assets/422ef5ba-61c1-435c-8416-2f9239d9abc2"/>
+<img width="1536" height="1024" alt="ChatGPT Image Jan 7, 2026, 07_29_05 PM" src="https://github.com/user-attachments/assets/e1517778-8e3b-42d4-a3dd-541aa468c167" />
   
 _An actively maintained fork of [nirewen's](https://github.com/nirewen) original project._
 

@@ -76,8 +76,8 @@ Make sure you have the following installed:
 ## 🖼️ Preview
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f26c88b4-d5a0-479b-b515-62b135a77f20" width="300px" alt="Rich Presence Preview 1"/>
-  <img src="https://github.com/user-attachments/assets/14747a3b-5409-4c7e-9009-2c499ed1080b" width="300px" alt="Rich Presence Preview 2"/>
+<img width="400" height="600" alt="ChatGPT Image Jan 7, 2026, 09_49_02 PM (1)" src="https://github.com/user-attachments/assets/b1fe9dcc-877f-4462-9332-a30fe8919651" />
+<img width="400" height="600" alt="ChatGPT Image Jan 7, 2026, 09_49_17 PM (1)" src="https://github.com/user-attachments/assets/aae57089-de02-483c-b888-7a8fc6a4e161" />
 </div>
 
 ---

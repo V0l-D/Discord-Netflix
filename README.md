@@ -1,7 +1,6 @@
 <div align="center">
-
-# 🎬 Discord-Netflix  
-**Rich Presence for Netflix in Discord**  
+<img width="1536" height="1024" alt="ChatGPT Image Jan 7, 2026, 07_29_05 PM" src="https://github.com/user-attachments/assets/e1517778-8e3b-42d4-a3dd-541aa468c167" />
+  
 _An actively maintained fork of [nirewen's](https://github.com/nirewen) original project._
 
 [![Join our Discord](https://img.shields.io/discord/868546947953356860?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/kbf8EjpxbU)
@@ -18,10 +17,13 @@ _An actively maintained fork of [nirewen's](https://github.com/nirewen) original
 - 📌 Picture-in-picture mode  
 - 🎵 Max bitrate playback
 - 📹 Ctrl + Shift + Alt + D (codec menu)
-- 🧠 Smart Discord Rich Presence  
+- 🧠 Smart Discord Rich Presence
+- 🏠 Bypass Household Restrictions
+- 📋 Auto Update Notifier
+- 🖱️ Smoothscroll
+- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover)) (Integration is W.I.P)
 - 👤 Custom user avatars ([Wiki](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars))  
 - 🔒 Transparent [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy) practices  
-- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover))  
 - 🗺️ [Development Roadmap](https://github.com/Terroriser1/Discord-Netflix/wiki/Roadmap)
 
 ---
@@ -63,11 +65,11 @@ Make sure you have the following installed:
 - ✅ Create official website  
 - ✅ Fix profile icons in RPC
 - ✅ Build macOS executable  
-- 🟡 Add 4K support  
-- 🟡 Improve auto-updater  
+- ✅ Improve auto-updater  
+- ✅ Modernize Discord community
 - 🟡 Personalize Rich Presence  
 - 🟡 Launch Discord bot  
-- 🟡 Modernize Discord community
+- 🟡 IMDB cover support Integration
 
 ---
 
@@ -77,7 +79,6 @@ Make sure you have the following installed:
   <img src="https://github.com/user-attachments/assets/f26c88b4-d5a0-479b-b515-62b135a77f20" width="300px" alt="Rich Presence Preview 1"/>
   <img src="https://github.com/user-attachments/assets/14747a3b-5409-4c7e-9009-2c499ed1080b" width="300px" alt="Rich Presence Preview 2"/>
 </div>
-
 
 ---
 

@@ -17,10 +17,13 @@ _An actively maintained fork of [nirewen's](https://github.com/nirewen) original
 - 📌 Picture-in-picture mode  
 - 🎵 Max bitrate playback
 - 📹 Ctrl + Shift + Alt + D (codec menu)
-- 🧠 Smart Discord Rich Presence  
+- 🧠 Smart Discord Rich Presence
+- 🏠 Bypass Household Restrictions
+- 📋 Auto Update Notifier
+- 🖱️ Smoothscroll
+- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover)) (Integration is W.I.P)
 - 👤 Custom user avatars ([Wiki](https://github.com/Terroriser1/Discord-Netflix/wiki/Avatars))  
 - 🔒 Transparent [Privacy](https://github.com/Terroriser1/Discord-Netflix/wiki/Privacy) practices  
-- 🎞️ IMDB cover support ([fork by 0xGingi](https://github.com/0xGingi/Discord-Netflix/tree/IMDB-Cover))  
 - 🗺️ [Development Roadmap](https://github.com/Terroriser1/Discord-Netflix/wiki/Roadmap)
 
 ---
@@ -63,9 +66,10 @@ Make sure you have the following installed:
 - ✅ Fix profile icons in RPC
 - ✅ Build macOS executable  
 - ✅ Improve auto-updater  
+- ✅ Modernize Discord community
 - 🟡 Personalize Rich Presence  
 - 🟡 Launch Discord bot  
-- ✅ Modernize Discord community
+- 🟡 IMDB cover support Integration
 
 ---
 
